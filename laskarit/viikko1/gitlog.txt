@@ -1,0 +1,189 @@
+commit 795d1da7d605a6dbf9712573515e7ad805566f7d 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 16:58:28 2022 +0200 
+
+  
+
+    poisto ja muutos 
+
+  
+
+tiedostoja/file2             | 0 
+
+tiedostoja/{file1 => file22} | 0 
+
+2 files changed, 0 insertions(+), 0 deletions(-) 
+
+  
+
+commit 5470da88eefae4746ca22ccf3c8db79d3f30ba44 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 16:52:54 2022 +0200 
+
+  
+
+    lisäykset 
+
+  
+
+tiedostoja/file1 | 0 
+
+tiedostoja/file2 | 0 
+
+tiedostoja/file3 | 0 
+
+3 files changed, 0 insertions(+), 0 deletions(-) 
+
+  
+
+commit dd8c7c17a62340a2600792722850d14ec253c427 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 16:30:53 2022 +0200 
+
+  
+
+    muokkauksia 
+
+  
+
+eka.txt    | 2 +- 
+
+kolmas.txt | 1 + 
+
+2 files changed, 2 insertions(+), 1 deletion(-) 
+
+  
+
+commit 95ab9d685e3f93d5eb068c4b88310b7dec167b68 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 16:28:22 2022 +0200 
+
+  
+
+    nimi muutettu 
+
+  
+
+tiedosto.txt => eka.txt | 0 
+
+1 file changed, 0 insertions(+), 0 deletions(-) 
+
+  
+
+commit ed778dfe14beba64a69c04429c770119b22da01c 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 16:26:24 2022 +0200 
+
+  
+
+    poistettu toinen 
+
+  
+
+toinen.txt | 1 - 
+
+1 file changed, 1 deletion(-) 
+
+  
+
+commit c0e7591504dc428d368b260a04dd3c7f3a974662 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 15:46:49 2022 +0200 
+
+  
+
+    hakemisto lisätty 
+
+  
+
+stuff/tietoa.txt | 0 
+
+1 file changed, 0 insertions(+), 0 deletions(-) 
+
+  
+
+commit 32174d118c41b449a1bfab4b34473be3094a771d 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 15:45:47 2022 +0200 
+
+  
+
+    muokkauksia 
+
+  
+
+kolmas.txt | 1 + 
+
+toinen.txt | 1 + 
+
+2 files changed, 2 insertions(+) 
+
+  
+
+commit 4af48a3b661d5c12d7ad9e6d4f91d412de315020 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 15:44:46 2022 +0200 
+
+  
+
+    lisätty kolmas 
+
+  
+
+kolmas.txt | 0 
+
+1 file changed, 0 insertions(+), 0 deletions(-) 
+
+  
+
+commit f069c80e36b02c4c575b7b26b2b5926b1fe3997f 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 15:37:36 2022 +0200 
+
+  
+
+    muutos ja lisäys 
+
+  
+
+tiedosto.txt | 1 + 
+
+toinen.txt   | 0 
+
+2 files changed, 1 insertion(+) 
+
+  
+
+commit a7734886187f5ddfdeacd34337a48623ee61275b 
+
+Author: Vaskivuori Erja J <verja@melkki.cs.helsinki.fi> 
+
+Date:   Mon Nov 7 15:27:10 2022 +0200 
+
+  
+
+    tiedosto.txt luotu 
+
+  
+
+tiedosto.txt | 0 
+
+1 file changed, 0 insertions(+), 0 deletions(-) 
