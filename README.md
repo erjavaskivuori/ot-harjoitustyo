@@ -1,5 +1,7 @@
 ## Ohjelmistotekniikan harjoitustyö
 
+### viikko 1
+
 **Harjoittelua harjoitustyötä varten**
 
 Kurssilla olen tähän mennessä oppinut käyttämään komentoriviä _paremmin_. Lisäksi
