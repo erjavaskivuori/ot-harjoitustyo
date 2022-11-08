@@ -1,6 +1,6 @@
 ## Ohjelmistotekniikan harjoitustyö
 
-### viikko 1
+### Viikko 1
 
 **Harjoittelua harjoitustyötä varten**
 
