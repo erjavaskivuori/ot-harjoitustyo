@@ -2,3 +2,6 @@ poetry-testi
 poetry.lock
 .pytest_cache
 __pycache__
+.coverage
+htmlcov
+.coveragerc
