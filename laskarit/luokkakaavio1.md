@@ -1,4 +1,4 @@
-# Monopolin luokkakaavio
+## Monopolin luokkakaavio
 
 ```mermaid
  classDiagram
@@ -16,5 +16,8 @@
       class Ruutu{
         tyyppi
         seuraava_ruutu()
+      }
+      class Noppa{
+        silmäluku
       }
 ```
