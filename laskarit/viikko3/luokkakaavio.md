@@ -2,7 +2,8 @@
 
 ```mermaid
  classDiagram
-      Pelilauta <-- Pelaaja
-      Pelilauta <-- Ruudut
+      Pelilauta -- Pelaaja
+      Pelilauta -- Ruudut
+      Pelaaja -- Ruudut
       Noppa <|.. Pelaaja
 ```
