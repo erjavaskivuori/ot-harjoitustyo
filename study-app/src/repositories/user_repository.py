@@ -44,4 +44,9 @@ class UserRepository:
         except:
             return False
 
+    def delete_all_users(self):
+        cursor = self._connection.cursor()
+        cursor.execute("DELETE * FROM users")
+        self._connection.commit()
+
 user_repository = UserRepository(form_database_connection())
