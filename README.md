@@ -4,8 +4,8 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 ### Dokumentaatio
 
-[vaatimusmaarittely.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+- [vaatimusmaarittely.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-[tuntikirjanpito.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
+- [tuntikirjanpito.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 
-[changelog.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
+- [changelog.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
