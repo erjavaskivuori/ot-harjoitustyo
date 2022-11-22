@@ -15,18 +15,18 @@ def drop_tables(connection):
 def create_tables(connection):
     cursor = connection.cursor()
 
-    cursor.execute("""CREATE TABLE users (
+    cursor.execute("""CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY,
         username TEXT, 
         password TEXT);""")
 
-    cursor.execute("""CREATE TABLE courses (
+    cursor.execute("""CREATE TABLE IF NOT EXISTS courses (
         id INTEGER PRIMARY KEY,
         user_id INTEGER REFERENCES users, 
         name TEXT,
         visibility INTEGER);""") #0 or 1, 1 = visible
 
-    cursor.execute("""CREATE TABLE courseTasks (
+    cursor.execute("""CREATE TABLE IF NOT EXISTS courseTasks (
         id INTEGER PRIMARY KEY,
         course_id INTEGER REFERENCES courses, 
         description TEXT,
