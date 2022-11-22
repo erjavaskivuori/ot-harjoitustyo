@@ -1,4 +1,4 @@
-## Monopolin luokkakaavio
+## Tehtävä 1: Monopoli
 
 ```mermaid
  classDiagram
