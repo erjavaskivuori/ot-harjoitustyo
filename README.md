@@ -1,16 +1,11 @@
-## Ohjelmistotekniikan harjoitustyö
+## Study-app
 
-### Viikko 1
+Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kullekin meneillään olevalle kurssille käyttäjä voi tehdä oman tehtävälistan, johon kirjataan kurssin tulevat tehtävät. Sovelluksella voi olla useita rekisteröityneitä käyttäjiä, jotka pystyvät tarkastelemaan vain omia tehtävälistojaan.
 
-**Harjoittelua harjoitustyötä varten**
-
-Kurssilla olen tähän mennessä oppinut käyttämään komentoriviä _paremmin_. Lisäksi
-olen oppinut **Git-versionhallinnasta**.
-
-[gitlog.txt](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+### Dokumentaatio
 
 [vaatimusmaarittely.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 [tuntikirjanpito.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
+
+[changelog.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
