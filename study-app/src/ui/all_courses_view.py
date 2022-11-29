@@ -53,7 +53,7 @@ class AllCoursesView:
             self._show_error("Give at least one character")
         else:
             study_app_service.create_course(name)
-            self._show_course_view()
+            #self._show_course_view()
 
     def _initialize_course_entity(self, course):
 
@@ -66,7 +66,7 @@ class AllCoursesView:
         course_button.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _show_error(self, error):
-        if self._error != None:
+        if self._error is not None:
             self._error.set(error)
             self._error_label.grid()
 
@@ -104,7 +104,7 @@ class AllCoursesView:
 
         self._error_label.grid(padx=5, pady=5)
 
-        if self._courses != None:
+        if self._courses is not None:
             for course in self._courses:
                 self._initialize_course_entity(course)
 

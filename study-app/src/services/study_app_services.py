@@ -47,15 +47,15 @@ class StudyAppServices:
         return self._user
 
     def create_course(self, name):
-
-        course = self._course_repo.create_course(self._user, name)
-        self._course = course
+        #course = 
+        self._course_repo.create_course(self._user, name)
+        #self._course = course
 
     def get_undone_courses(self):
         if self._user is not None:
             courses = self._course_repo.get_users_courses(self._user)
             return courses
-        return False
+        return None
 
     def get_current_course(self):
         return self._course
