@@ -1,9 +1,6 @@
 from repositories.user_repository import user_repository
 from repositories.course_repository import course_repository
 from repositories.task_repository import task_repository
-from entities.user import User
-from entities.course import Course
-from entities.task import Task
 
 
 class UsernameExistsError(Exception):
@@ -36,16 +33,15 @@ class StudyAppServices:
 
         user = self._user_repo.find_by_username(username, password)
 
-        if user == None:
+        if user is None:
             return InvalidCredentialsError
-        else:
-            self._user = user
+
+        self._user = user
+        return True
 
     def logout(self):
-        if self._user != None:
+        if self._user is not None:
             self._user = None
-        else:
-            return False
 
     def get_current_user(self):
         return self._user
@@ -56,15 +52,16 @@ class StudyAppServices:
         self._course = course
 
     def get_undone_courses(self):
-        if self._user != None:
+        if self._user is not None:
             courses = self._course_repo.get_users_courses(self._user)
             return courses
+        return False
 
     def get_current_course(self):
         return self._course
 
     def add_task(self, description):
-        if self._course != None:
+        if self._course is not None:
             task = self._task_repo.create_task(self._course, description)
             self._course.tasks.append(task)
 
