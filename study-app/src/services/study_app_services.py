@@ -62,4 +62,12 @@ class StudyAppServices:
     def get_current_course(self):
         return self._course
 
+    def add_task(self, description):
+        if self._course != None:
+            task = self._task_repo.create_task(self._course, description)
+            self._course.tasks.append(task)
+
+    def set_task_done(self, task):
+        self._task_repo.remove_task(task)
+
 study_app_service = StudyAppServices()
