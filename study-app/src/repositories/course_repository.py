@@ -12,7 +12,7 @@ class CourseRepository:
     def create_course(self, owner: User, name: str):
 
         cursor = self._connection.cursor()
-        cursor.execute("""INSERT INTO courses (user_id, name, visibility) 
+        cursor.execute("""INSERT INTO courses (user_id, name, visibility)
                         VALUES (?, ?, ?)""", [owner.id, name, 1])
         self._connection.commit()
 
