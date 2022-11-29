@@ -8,13 +8,13 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 ### Tunnuksen luominen ja kirjautuminen
 
-* Käyttäjä voi luoda käyttäjätunnuksen
-* Käyttäjä voi kirjautua järjestelmään ja sieltä ulos
+* Käyttäjä voi luoda käyttäjätunnuksen (tehty)
+* Käyttäjä voi kirjautua järjestelmään ja sieltä ulos (tehty)
 
 ### Kirjautuneena järjestelmään
 
-* Käyttäjä näkee omat kurssit 
-* Käyttäjä voi luoda uuden kurssin ja sille tehtävälistan
+* Käyttäjä näkee omat kurssit (tehty)
+* Käyttäjä voi luoda uuden kurssin (tehty) ja sille tehtävälistan
 * Käyttäjä voi merkitä tehtävän tehdyksi, jolloin se poistuu
 * Käyttäjä voi merkitä kurssin suoritetuksi, jolloin koko kurssi ja sen sisältämä tehtävälista poistuvat
 
