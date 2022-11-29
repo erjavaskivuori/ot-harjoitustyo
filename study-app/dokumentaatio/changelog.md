@@ -8,4 +8,3 @@
 - Käyttäjä voi luoda kurssin
 - Aloitettu graafisen käyttöliittymän toteutus
 - Parannettu koodin laatua
-- Lisätty  
