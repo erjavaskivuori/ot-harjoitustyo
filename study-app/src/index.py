@@ -3,7 +3,7 @@ from ui.ui import UI
 
 def main():
     window = Tk()
-    window.title("Study application")
+    window.title("Study-app")
 
     ui = UI(window)
     ui.start()
