@@ -9,3 +9,5 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 - [tuntikirjanpito.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/tuntikirjanpito.md)
 
 - [changelog.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
+
+- [arkkitehtuuri.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/arkkitehtuuri.md)
