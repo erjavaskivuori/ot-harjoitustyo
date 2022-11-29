@@ -1,1 +1,1 @@
-![kuva]()
+![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/pakkauskaavio.drawio.png)
