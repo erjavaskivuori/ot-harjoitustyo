@@ -21,7 +21,8 @@ class CourseRepository:
     def get_users_courses(self, user: User):
 
         cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM courses WHERE visibility=1 AND user_id=?", [user.id])
+        cursor.execute(
+            "SELECT * FROM courses WHERE visibility=1 AND user_id=?", [user.id])
         rows = cursor.fetchall()
 
         return [Course(row[0], user, row[2], row[3]) for row in rows]

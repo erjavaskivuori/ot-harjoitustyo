@@ -39,4 +39,5 @@ class UserRepository:
         cursor.execute("DELETE * FROM users")
         self._connection.commit()
 
+
 user_repository = UserRepository(form_database_connection())

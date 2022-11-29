@@ -9,6 +9,7 @@ from entities.task import Task
 class UsernameExistsError(Exception):
     pass
 
+
 class InvalidCredentialsError(Exception):
     pass
 
@@ -34,7 +35,7 @@ class StudyAppServices:
     def login(self, username, password):
 
         user = self._user_repo.find_by_username(username, password)
-        
+
         if user == None:
             return InvalidCredentialsError
         else:
@@ -69,5 +70,6 @@ class StudyAppServices:
 
     def set_task_done(self, task):
         self._task_repo.remove_task(task)
+
 
 study_app_service = StudyAppServices()

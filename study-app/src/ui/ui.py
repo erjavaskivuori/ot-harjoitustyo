@@ -16,7 +16,7 @@ class UI:
     def _hide_current_view(self):
         if self._current_view:
             self._current_view.destroy()
-        
+
         self._current_view = None
 
     def _show_welcome_view(self):

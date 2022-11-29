@@ -1,6 +1,7 @@
 from tkinter import ttk, constants, StringVar
 from services.study_app_services import study_app_service
 
+
 class AllCoursesView:
     def __init__(self, root, show_welcome_view, show_course_view):
         self._root = root
@@ -40,11 +41,12 @@ class AllCoursesView:
         )
 
         create_label.grid(row=2, column=0, sticky=constants.W)
-        self._course_name_entry.grid(row=3, padx=5, pady=5, sticky=constants.EW)
+        self._course_name_entry.grid(
+            row=3, padx=5, pady=5, sticky=constants.EW)
         create_button.grid(row=3, sticky=constants.E)
 
     def _create_course_handler(self):
-        
+
         name = self._course_name_entry.get()
 
         if name == "":
@@ -54,7 +56,7 @@ class AllCoursesView:
             self._show_course_view()
 
     def _initialize_course_entity(self, course):
-        
+
         course_button = ttk.Button(
             master=self._frame,
             text=f"{course}",
@@ -74,7 +76,7 @@ class AllCoursesView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
-            master=self._frame, 
+            master=self._frame,
             text=f"Welcome {self._user}"
         )
 
@@ -89,7 +91,7 @@ class AllCoursesView:
         )
 
         logout_button.grid(row=0, sticky=constants.E)
-    
+
         self._create_course_field()
 
         self._error = StringVar(self._frame)
@@ -107,5 +109,3 @@ class AllCoursesView:
                 self._initialize_course_entity(course)
 
         self._hide_error()
-
-        
