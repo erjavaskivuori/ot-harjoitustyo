@@ -5,59 +5,48 @@ from entities.user import User
 from entities.course import Course
 from entities.task import Task
 
+
 class UsernameExistsError(Exception):
-    def __init__(self, message="Username is taken"):
-        self.message = message
-        super().__init__(self.message)
-
-    def __str__(self):
-        return self.message
-
-class ShortPasswordError(Exception):
-    def __init__(self, message="Password must have at least 6 characters"):
-        self.message = message
-        super().__init__(self.message)
-
-    def __str__(self):
-        return self.message
+    pass
 
 class InvalidCredentialsError(Exception):
-    def __init__(self, message="Username and password don't match"):
-        self.message = message
-        super().__init__(self.message)
+    pass
 
-    def __str__(self):
-        return self.message
 
 class StudyAppServices:
-    def __init__(self, user_repo=user_repository, 
-                course_repo=course_repository, 
-                task_repo=task_repository):
+    def __init__(self, user_repo=user_repository,
+                 course_repo=course_repository,
+                 task_repo=task_repository):
 
         self._user_repo = user_repo
         self._course_repo = course_repo
         self._task_repo = task_repo
         self._user = None
+        self._course = None
 
     def create_user(self, username, password):
 
         if self._user_repo.find_by_username(username):
             raise UsernameExistsError()
-        
-        if len(password) < 6:
-            raise ShortPasswordError()
 
         self._user = self._user_repo.create_user(username, password)
 
     def login(self, username, password):
 
-        if self._user_repo.find_password(username, password):
-            raise InvalidCredentialsError
+        user = self._user_repo.find_by_username(username, password)
+        
+        if user == None:
+            return InvalidCredentialsError
         else:
-            self._user = self._user_repo.find_password(username, password)
+            self._user = user
 
     def logout(self):
         if self._user != None:
             self._user = None
         else:
             return False
+
+    def get_current_user(self):
+        return self._user
+
+study_app_service = StudyAppServices()
