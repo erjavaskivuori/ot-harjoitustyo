@@ -18,15 +18,13 @@ class UserRepository:
 
     def find_by_username(self, username: str):
 
-        try:
-            cursor = self._connection.cursor()
-            cursor.execute(
-                "SELECT id, username, password FROM users WHERE username=?", [username])
-            row = cursor.fetchone()
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "SELECT id, username, password FROM users WHERE username=?", [username])
+        row = cursor.fetchone()
 
-            return User(row[0], row[1], row[2])
-        except:
-            return False
+        return User(row[0], row[1], row[2])
+
 
     def create_user(self, username: str, password: str):
 
