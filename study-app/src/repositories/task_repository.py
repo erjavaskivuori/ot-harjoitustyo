@@ -12,8 +12,8 @@ class TaskRepository:
     def create_task(self, course: Course, description):
 
         cursor = self._connection.cursor()
-        cursor.execute("""INSERT INTO courseTasks (course_id, description
-                        visibility VALUES (?, ?, ?)""",
+        cursor.execute("""INSERT INTO courseTasks (course_id, description,
+                        visibility) VALUES (?, ?, ?)""",
                        [course.id, description, 1])
         self._connection.commit()
 
@@ -26,13 +26,18 @@ class TaskRepository:
             "SELECT * FROM courseTasks WHERE visibility=1 AND course_id=?", [course.id])
         rows = cursor.fetchall()
 
-        return [Task(row(0), course, row[2], row(3)) for row in rows]
+        return [Task(row[0], course, row[2], row[3]) for row in rows]
 
     def remove_task(self, task: Task):
 
         cursor = self._connection.cursor()
         cursor.execute(
             "UPDATE courseTasks SET visibility=0 WHERE id=?", [task.id])
+        self._connection.commit()
+
+    def remove_all_tasks(self):
+        cursor = self._connection.cursor()
+        cursor.execute("""DELETE FROM courseTasks""")
         self._connection.commit()
 
 
