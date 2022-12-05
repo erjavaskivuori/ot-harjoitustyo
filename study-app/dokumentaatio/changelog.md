@@ -8,3 +8,6 @@
 - Käyttäjä voi luoda kurssin
 - Aloitettu graafisen käyttöliittymän toteutus
 - Parannettu koodin laatua
+
+## Viikko 5
+- Lisätty testikattavuutta
