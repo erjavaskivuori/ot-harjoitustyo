@@ -31,13 +31,14 @@ class StudyAppServices:
 
     def login(self, username, password):
 
-        user = self._user_repo.find_by_username(username, password)
+        user = self._user_repo.find_by_username(username)
 
-        if user is None:
-            return InvalidCredentialsError
+        if not user or user.password != password:
+            raise InvalidCredentialsError
 
         self._user = user
-        return True
+
+        return user
 
     def logout(self):
         if self._user is not None:
@@ -47,9 +48,7 @@ class StudyAppServices:
         return self._user
 
     def create_course(self, name):
-        #course = 
         self._course_repo.create_course(self._user, name)
-        #self._course = course
 
     def get_undone_courses(self):
         if self._user is not None:
