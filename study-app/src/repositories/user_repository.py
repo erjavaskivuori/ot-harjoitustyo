@@ -18,12 +18,15 @@ class UserRepository:
 
     def find_by_username(self, username: str):
 
-        cursor = self._connection.cursor()
-        cursor.execute(
-            "SELECT username FROM users WHERE username=?", [username])
-        row = cursor.fetchall()
+        try:
+            cursor = self._connection.cursor()
+            cursor.execute(
+                "SELECT id, username, password FROM users WHERE username=?", [username])
+            row = cursor.fetchone()
 
-        return User(row[0], row[1], row[2])
+            return User(row[0], row[1], row[2])
+        except:
+            return False
 
     def create_user(self, username: str, password: str):
 
@@ -36,7 +39,7 @@ class UserRepository:
 
     def delete_all_users(self):
         cursor = self._connection.cursor()
-        cursor.execute("DELETE * FROM users")
+        cursor.execute("""DELETE FROM users""")
         self._connection.commit()
 
 
