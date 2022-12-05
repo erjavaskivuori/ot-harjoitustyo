@@ -28,7 +28,7 @@ poetry run invoke start
 
 ## Komentorivitoiminnot
 
-#### Ohjelman käynnistäminen:
+### Ohjelman käynnistäminen
 ```
 poetry run invoke start
 ```
