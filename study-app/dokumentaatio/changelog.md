@@ -11,3 +11,4 @@
 
 ## Viikko 5
 - Lisätty testikattavuutta
+- Luotu näkymä yksittäiselle kurssille
