@@ -34,5 +34,10 @@ class CourseRepository:
             "UPDATE courses SET visibility=0 WHERE id=?", [course.id])
         self._connection.commit()
 
+    def remove_all_courses(self):
+        cursor = self._connection.cursor()
+        cursor.execute("""DELETE FROM courses""")
+        self._connection.commit()
+
 
 course_repository = CourseRepository(form_database_connection())
