@@ -2,7 +2,8 @@
 __pycache__
 .coverage
 htmlcov
-study_app.py
+
+src/study_app.py
 
 data/database.sqlite
 data/test-database.sqlite
