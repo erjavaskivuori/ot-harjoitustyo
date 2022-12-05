@@ -53,7 +53,7 @@ class AllCoursesView:
             self._show_error("Give at least one character")
         else:
             study_app_service.create_course(name)
-            #self._show_course_view()
+            self._show_course_view()
 
     def _initialize_course_entity(self, course):
 
@@ -77,7 +77,7 @@ class AllCoursesView:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
             master=self._frame,
-            text=f"Welcome {self._user}"
+            text=f"Welcome!"
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)

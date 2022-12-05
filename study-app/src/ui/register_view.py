@@ -72,7 +72,7 @@ class RegisterView:
             self._show_error(f"Usename {username} is taken")
 
     def _show_error(self, error):
-        if self._error != None:
+        if self._error is not None:
             self._error.set(error)
             self._error_label.grid()
 
