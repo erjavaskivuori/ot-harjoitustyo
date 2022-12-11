@@ -21,6 +21,7 @@ class StudyAppServices:
         self._task_repo = task_repo
         self._user = None
         self._course = None
+        self._task = None
 
     def create_user(self, username, password):
 
@@ -41,14 +42,14 @@ class StudyAppServices:
         return user
 
     def logout(self):
-        if self._user is not None:
-            self._user = None
+        self._user = None
 
     def get_current_user(self):
         return self._user
 
     def create_course(self, name):
-        self._course_repo.create_course(self._user, name)
+        course = self._course_repo.create_course(self._user, name)
+        self._course = course
 
     def get_undone_courses(self):
         if self._user is not None:
@@ -56,16 +57,32 @@ class StudyAppServices:
             return courses
         return None
 
+    def set_current_course(self, course):
+        self._course = course
+
     def get_current_course(self):
         return self._course
 
-    def add_task(self, description):
+    def remove_course(self, course):
+        self._course_repo.remove_course(course)
+
+    def add_task(self, title, description, deadline):
         if self._course is not None:
-            task = self._task_repo.create_task(self._course, description)
+            task = self._task_repo.create_task(self._course,title, description, deadline)
             self._course.tasks.append(task)
 
-    def set_task_done(self, task):
-        self._task_repo.remove_task(task)
+    def get_tasks_by_course(self, course):
+        tasks = task_repository.get_tasks_by_course(course)
+        return tasks
+
+    def change_task_state(self, task, state):
+        self._task_repo.change_state(task, state)
+
+    def set_current_task(self, task):
+        self._task = task
+
+    def get_current_task(self):
+        return self._task
 
 
 study_app_service = StudyAppServices()
