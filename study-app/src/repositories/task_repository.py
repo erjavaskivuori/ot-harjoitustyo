@@ -1,6 +1,7 @@
 from database_connection import form_database_connection
 from entities.task import Task
 from entities.course import Course
+from entities.user import User
 
 
 class TaskRepository:
