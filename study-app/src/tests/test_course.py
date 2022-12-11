@@ -3,6 +3,7 @@ from repositories.course_repository import course_repository
 from entities.course import Course
 from entities.user import User
 
+
 class TestCourseRepository(unittest.TestCase):
     def setUp(self):
         course_repository.remove_all_courses()
