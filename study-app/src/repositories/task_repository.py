@@ -26,11 +26,15 @@ class TaskRepository:
 
         return [Task(row[0], course, row[2], row[3], row[4], row[5]) for row in rows]
 
-    def remove_task(self, task: Task):
+    def change_state(self, task: Task, state):
 
         cursor = self._connection.cursor()
-        cursor.execute(
-            "UPDATE courseTasks SET state=0 WHERE id=?", [task.id])
+        if state == 0:
+            cursor.execute(
+                "UPDATE courseTasks SET state=0 WHERE id=?", [task.id])
+        else:
+            cursor.execute(
+                "UPDATE courseTasks SET state=1 WHERE id=?", [task.id])
         self._connection.commit()
 
     def remove_all_tasks(self):
