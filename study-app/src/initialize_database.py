@@ -8,7 +8,7 @@ def drop_tables(connection):
 
     cursor.execute("DROP TABLE IF EXISTS courses;")
 
-    cursor.execute("DROP TABLE IF EXISTS courseTodos;")
+    cursor.execute("DROP TABLE IF EXISTS courseTasks;")
 
     connection.commit()
 
@@ -29,9 +29,11 @@ def create_tables(connection):
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS courseTasks (
         id INTEGER PRIMARY KEY,
-        course_id INTEGER REFERENCES courses, 
+        course_id INTEGER REFERENCES courses,
+        title TEXT,
         description TEXT,
-        visibility INTEGER);""")  # 0 or 1, 1 = visible
+        deadline TEXT,
+        state INTEGER);""")  # 0 or 1, 0 = done, 1 = undone
 
     connection.commit()
 
