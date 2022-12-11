@@ -5,7 +5,18 @@ from services.study_app_services import study_app_service
 
 
 class CreateTaskView:
+    """Tehtävän luomisnäkymästä vastaava luokka."""
+
     def __init__(self, root, show_course_view):
+        """Luokan konstruktori. Luo uuden luomisnäkymän.
+
+        Args:
+            root: TKinter-elementti, jonka sisään näkymä alustetaan.
+            show_course_view :
+                Kutsuttava arvo, jota kutsutaan, kun luodaan kurssi tai
+                palataan takaisin kurssinäkymään.
+        """
+
         self._root = root
         self._frame = None
         self._show_course_view = show_course_view
@@ -18,12 +29,16 @@ class CreateTaskView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _title_field(self):
+        """Alustaa kentän, johon annetaan tehtävän otsikko."""
+
         title_label = ttk.Label(
             master=self._frame,
             text="Title"
@@ -34,6 +49,8 @@ class CreateTaskView:
         self._title_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _description_field(self):
+        """Alustaa kentän, johon annetaan tehtävän kuvaus."""
+
         title_label = ttk.Label(
             master=self._frame,
             text="Description (optional)"
@@ -44,6 +61,8 @@ class CreateTaskView:
         self._description_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _deadline_field(self):
+        """Alustaa kalenteri-ikkunan, josta valitaan määräpäivä."""
+
         label = ttk.Label(
             master=self._frame,
             text="Select due date"
@@ -59,6 +78,8 @@ class CreateTaskView:
         self._deadline_entry.grid(sticky=constants.W)
 
     def _create_task_handler(self):
+        """Vastaa tehtävän luomisesta."""
+
         title = self._title_entry.get()
         description = self._description_entry.get("1.0", 'end-1c')
         deadline = self._deadline_entry.get_date()
@@ -120,7 +141,18 @@ class CreateTaskView:
 
 
 class TaskView:
+    """Tehtävänäkymästä vastaava luokka. Näyttää yksittäisen
+        tehtävän tarkemmat tiedot."""
+
     def __init__(self, root, show_course_view):
+        """Luokan konstruktori. Luo uuden tehtävänäkymän.
+
+        Args:
+            root: TKinter-elementti, jonka sisään näkymä alustetaan.
+            show_course_view:
+                Kutsuttava arvo, jota kutsutaan, kun palataan kurssinäkymään.
+        """
+
         self._root = root
         self.show_course_view = show_course_view
         self._task = study_app_service.get_current_task()
@@ -130,9 +162,11 @@ class TaskView:
         self.initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def initialize(self):

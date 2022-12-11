@@ -3,12 +3,24 @@ from entities.user import User
 
 
 class UserRepository:
+    """Luokka, joka vastaa käyttäjiin liittyvistä tietokantaoperaatioista.
+    """
 
     def __init__(self, connection: form_database_connection):
+        """Luokan kontruktori.
+
+        Args:
+            connection: Tietokantayhteyden Connection-olio.
+        """
 
         self._connection = connection
 
     def find_all_users(self):
+        """Palauttaa kaikki tietokannassa olevat käyttäjät.
+
+        Returns:
+            Palauttaa listan User-olioita.
+        """
 
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM users")
@@ -17,6 +29,15 @@ class UserRepository:
         return [User(row[0], row[1], row[2]) for row in rows]
 
     def find_by_username(self, username: str):
+        """Palauttaa käyttäjän käyttäjänimen perusteella.
+
+        Args:
+            username: Merkkijonoarvo, joka kuvaa palautettavan käyttäjän käyttäjänimeä.
+
+        Returns:
+            Palauttaa User-olion, jos haettu käyttäjänimi löytyy tietokannasta.
+            Muussa tapauksessa palauttaa None.
+        """
 
         cursor = self._connection.cursor()
         cursor.execute(
@@ -29,6 +50,15 @@ class UserRepository:
         return None
 
     def create_user(self, username: str, password: str):
+        """Tallentaa käyttäjän tietokantaan.
+
+        Args:
+            username: Käyttäjänimi merkkijonoarvona.
+            password: Käyttäjän salasana merkkijonoarvona.
+
+        Returns:
+            Palauttaa User-olion.
+        """
 
         cursor = self._connection.cursor()
         cursor.execute("""INSERT INTO users (username, password)
@@ -38,6 +68,9 @@ class UserRepository:
         return User(cursor.lastrowid, username, password)
 
     def delete_all_users(self):
+        """Poistaa kaikki käyttäjät tietokannasta.
+        """
+
         cursor = self._connection.cursor()
         cursor.execute("""DELETE FROM users""")
         self._connection.commit()

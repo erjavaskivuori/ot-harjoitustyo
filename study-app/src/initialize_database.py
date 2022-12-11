@@ -2,6 +2,12 @@ from database_connection import form_database_connection
 
 
 def drop_tables(connection):
+    """Poistaa tietokannan taulut.
+
+    Args:
+        connection: Tietokantayhteyden Connection-olio.
+    """
+
     cursor = connection.cursor()
 
     cursor.execute("DROP TABLE IF EXISTS users;")
@@ -14,6 +20,12 @@ def drop_tables(connection):
 
 
 def create_tables(connection):
+    """Luo tietokannan taulut.
+
+    Args:
+        connection: Tietokantayhteyden Connection-olio.
+    """
+
     cursor = connection.cursor()
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS users (
@@ -25,7 +37,7 @@ def create_tables(connection):
         id INTEGER PRIMARY KEY,
         user_id INTEGER REFERENCES users, 
         name TEXT,
-        visibility INTEGER);""")  # 0 or 1, 1 = visible
+        visibility INTEGER);""")  # 0 or 1; 1 = visible
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS courseTasks (
         id INTEGER PRIMARY KEY,
@@ -33,12 +45,14 @@ def create_tables(connection):
         title TEXT,
         description TEXT,
         deadline TEXT,
-        state INTEGER);""")  # 0 or 1, 0 = done, 1 = undone
+        state INTEGER);""")  # 0 or 1; 0 = done, 1 = undone
 
     connection.commit()
 
 
 def initialize_database():
+    """Alustaa tietokannan taulut."""
+
     connection = form_database_connection()
 
     drop_tables(connection)

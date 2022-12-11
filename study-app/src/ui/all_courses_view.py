@@ -3,7 +3,19 @@ from services.study_app_services import study_app_service
 
 
 class AllCoursesView:
+    """Kaikkien käyttäjän kurssien näkymästä vastaava luokka."""
+
     def __init__(self, root, show_welcome_view, show_course_view):
+        """Luokan konstruktori. Luo uuden kaikkien kurssien näkymän.
+
+        Args:
+            root: Tkinter-elementti, jonka sisään näkymä alustetaan.
+            show_welcome_view:
+                Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
+            show_course_view:
+                Kutsuttava arvo, jota kutsutaan, kun siirrytään kurssinäkymään.
+        """
+
         self._root = root
         self._show_welcome_view = show_welcome_view
         self._show_course_view = show_course_view
@@ -17,16 +29,22 @@ class AllCoursesView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _logout_handler(self):
+        """Vastaa käyttäjän kirjaamisesta ulos."""
+
         study_app_service.logout()
         self._show_welcome_view()
 
     def _create_course_field(self):
+        """Alustaa kentän, johon annetaan uuden kurssin nimi."""
+
         create_label = ttk.Label(
             master=self._frame,
             text="Create new course"
@@ -46,6 +64,7 @@ class AllCoursesView:
         create_button.grid(row=3, padx=5, pady=5, sticky=constants.E)
 
     def _create_course_handler(self):
+        """Vastaa uuden kurssin luomisesta."""
 
         name = self._course_name_entry.get()
 
@@ -56,7 +75,12 @@ class AllCoursesView:
             self._show_course_view()
 
     def _initialize_course_entity(self, course):
+        """Alustaa painikkeen yksittäiselle kurssille.
 
+        Args:
+            course: Kurssi Course-oliona.
+        """
+        
         course_button = ttk.Button(
             master=self._frame,
             text=f"{course.name}",

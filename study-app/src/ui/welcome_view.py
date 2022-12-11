@@ -2,7 +2,19 @@ from tkinter import ttk, constants
 
 
 class WelcomeView:
+    """Sovelluksen aloitusnäkymästä vastaava luokka."""
+
     def __init__(self, root, show_login, show_register):
+        """Luoka kontstruktori. Luo uuden aloitusnäkymän.
+
+        Args:
+            root: TKinter-elementti, jonka sisään näkymä alustetaan.
+            show_login: 
+                Kutsuttava arvo, jota kutsutaan kun siirrytään kirjautumisnäkymään.
+            show_register:
+                Kutsuttava arvo, jota kutsutaan kun siirrytään rekisteröitymisnäkymään.
+        """
+
         self._root = root
         self._frame = None
         self._show_login = show_login
@@ -11,9 +23,11 @@ class WelcomeView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _initialize(self):

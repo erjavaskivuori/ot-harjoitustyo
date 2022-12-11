@@ -4,7 +4,21 @@ from services.study_app_services import study_app_service
 
 
 class CourseView:
+    """Kurssinäkymästä vastaava luokka. Näyttää yksittäisen kurssin tehtävät."""
+
     def __init__(self, root, show_all_courses_view, show_create_task_view, show_task_view):
+        """Luokan konstruktori. Luo uuden kurssinäkymän.
+
+        Args:
+            root: TKinter-elementti, jonka sisään näkymä alustetaan.
+            show_all_courses_view:
+                Kutsuttava arvo, jota kutsutaan, kun palataan kaikkien kurssien näkymään.
+            show_create_task_view:
+                Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävän luomisnäkymään.
+            show_task_view:
+                Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävänäkymään.
+        """
+
         self._root = root
         self._frame = None
         self._show_all_courses_view = show_all_courses_view
@@ -17,12 +31,19 @@ class CourseView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _initialize_task_entity(self, task):
+        """Alustaa painikkeen yksittäiselle tehtävälle.
+
+        Args:
+            task: Tehtävä Task-oliona.
+        """
 
         task_button = ttk.Button(
             master=self._frame,
@@ -34,6 +55,8 @@ class CourseView:
         task_button.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize_remove_course_popup(self):
+        """Alustaa viesti-ikkunan kurssin poistamiselle.
+        """
 
         msg_box = messagebox.askyesno(
             title="Remove course",

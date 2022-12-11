@@ -3,7 +3,20 @@ from services.study_app_services import study_app_service, UsernameExistsError
 
 
 class RegisterView:
+    """Rekisteröitymisnäkymästä vastaava luokka."""
+    
     def __init__(self, root, register, show_welcome_view):
+        """Luokan konstruktori. Luo uuden rekisteröitymisnäkymän.
+
+        Args:
+            root: Tkinter-elementti, jonka sisään näkymä alustetaan.
+            register: 
+                Kutsuttava arvo, jota kutsutaan, kun käyttäjä rekisteröidään
+                ja kirjataan sisään sovellukseen.
+            show_welcome_view:
+                Kutsuttava arvo, jota kutsutaan, kun palataan aloitusnäkymään.
+        """
+
         self._root = root
         self._register = register
         self._show_welcome_view = show_welcome_view
@@ -17,12 +30,16 @@ class RegisterView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _username_field(self):
+        """Alustaa kentän, johon annetaan käyttäjänimi."""
+
         username_label = ttk.Label(
             master=self._frame,
             text="Username"
@@ -33,6 +50,8 @@ class RegisterView:
         self._username_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _password_field(self):
+        """Alustaa kentät, joihin salasana annetaan."""
+
         password_label = ttk.Label(
             master=self._frame,
             text="Password"
@@ -52,6 +71,8 @@ class RegisterView:
         self._password_entry2.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _registeration_handler(self):
+        """Vastaa käyttäjän rekisteröimisestä sovellukseen."""
+
         username = self._username_entry.get()
         password1 = self._password_entry1.get()
         password2 = self._password_entry2.get()

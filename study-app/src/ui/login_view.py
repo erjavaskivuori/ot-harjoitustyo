@@ -3,7 +3,18 @@ from services.study_app_services import study_app_service, InvalidCredentialsErr
 
 
 class LoginView:
+    """Kirjautumisnäkymästä vastaava luokka."""
+
     def __init__(self, root, login, show_welcome_view):
+        """Luokan kontruktori. Luo uuden kirjautumisnäkymän.
+
+        Args:
+            root: Tkinter-elementti, jonka sisään näkymä alustetaan.
+            login: Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu sisään.
+            show_welcome_view: 
+                Kutsuttava arvo, jota kutsutaan, kun palataan aloitusnäkymään.
+        """
+
         self._root = root
         self._login = login
         self._show_welcome_view = show_welcome_view
@@ -16,12 +27,16 @@ class LoginView:
         self._initialize()
 
     def pack(self):
+        """Näyttää näkymän."""
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tuhoaa näkymän."""
         self._frame.destroy()
 
     def _username_field(self):
+        """Alustaa kentän, johon annetaan käyttäjänimi."""
+
         username_label = ttk.Label(
             master=self._frame,
             text="Username"
@@ -32,6 +47,8 @@ class LoginView:
         self._username_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _password_field(self):
+        """Alustaa kentän, johon annetaan salasana"""
+
         password_label = ttk.Label(
             master=self._frame,
             text="Password"
@@ -42,6 +59,8 @@ class LoginView:
         self._password_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _login_handler(self):
+        """Vastaa käyttäjän kirjaamisesta sisään."""
+
         username = self._username_entry.get()
         password = self._password_entry.get()
 
