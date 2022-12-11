@@ -32,7 +32,7 @@ class TaskRepository:
         cursor = self._connection.cursor()
         cursor.execute(
             """SELECT T.title, C.name, T.deadline, T.state
-            FROM courseTasks T, courses C, users U 
+            FROM courseTasks T, courses C, users U
             WHERE T.course_id = C.id AND C.user_id = U.id AND U.id=?""", [user.id])
         rows = cursor.fetchall()
 

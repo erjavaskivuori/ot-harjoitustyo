@@ -25,8 +25,8 @@ class UserRepository:
 
         if row is not None:
             return User(row[0], row[1], row[2])
-        else:
-            return
+
+        return None
 
     def create_user(self, username: str, password: str):
 
