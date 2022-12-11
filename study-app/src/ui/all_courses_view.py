@@ -37,13 +37,13 @@ class AllCoursesView:
         create_button = ttk.Button(
             master=self._frame,
             text="Create",
-            command=self._create_course_handler()
+            command=self._create_course_handler
         )
 
-        create_label.grid(row=2, column=0, sticky=constants.W)
+        create_label.grid(row=2, column=0, padx= 5, pady=5, sticky=constants.W)
         self._course_name_entry.grid(
             row=3, padx=5, pady=5, sticky=constants.EW)
-        create_button.grid(row=3, sticky=constants.E)
+        create_button.grid(row=3, padx=5, pady=5, sticky=constants.E)
 
     def _create_course_handler(self):
 
@@ -59,8 +59,8 @@ class AllCoursesView:
 
         course_button = ttk.Button(
             master=self._frame,
-            text=f"{course}",
-            command=self._show_course_view
+            text=f"{course.name}",
+            command=lambda: [study_app_service.set_current_course(course), self._show_course_view()]
         )
 
         course_button.grid(padx=5, pady=5, sticky=constants.EW)
@@ -77,12 +77,12 @@ class AllCoursesView:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
             master=self._frame,
-            text=f"Welcome!"
+            text=f"Welcome {self._user.username}!"
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        label.grid(row=0, sticky=constants.W)
+        label.grid(row=0, padx=5, pady=5, sticky=constants.W)
 
         logout_button = ttk.Button(
             master=self._frame,
@@ -90,7 +90,7 @@ class AllCoursesView:
             command=self._show_welcome_view
         )
 
-        logout_button.grid(row=0, sticky=constants.E)
+        logout_button.grid(row=0, padx=5, pady=5, sticky=constants.E)
 
         self._create_course_field()
 
