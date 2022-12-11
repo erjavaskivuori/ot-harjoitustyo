@@ -26,6 +26,17 @@ class TaskRepository:
 
         return [Task(row[0], course, row[2], row[3], row[4], row[5]) for row in rows]
 
+    def get_all_users_tasks(self, user: User):
+        
+        cursor = self._connection.cursor()
+        cursor.execute(
+            """SELECT T.title, C.name, T.deadline, T.state
+            FROM courseTasks T, courses C, users U 
+            WHERE T.course_id = C.id AND C.user_id = U.id AND U.id=?""", [user.id])
+        rows = cursor.fetchall()
+
+        return [[row] for row in rows]
+
     def change_state(self, task: Task, state):
 
         cursor = self._connection.cursor()
