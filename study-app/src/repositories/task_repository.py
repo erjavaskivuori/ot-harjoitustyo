@@ -28,7 +28,7 @@ class TaskRepository:
         return [Task(row[0], course, row[2], row[3], row[4], row[5]) for row in rows]
 
     def get_all_users_tasks(self, user: User):
-        
+
         cursor = self._connection.cursor()
         cursor.execute(
             """SELECT T.title, C.name, T.deadline, T.state

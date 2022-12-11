@@ -10,4 +10,3 @@ class Task:
         self.description = description
         self.deadline = deadline
         self.state = state
-        

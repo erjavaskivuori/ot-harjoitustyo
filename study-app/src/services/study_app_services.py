@@ -68,7 +68,8 @@ class StudyAppServices:
 
     def add_task(self, title, description, deadline):
         if self._course is not None:
-            task = self._task_repo.create_task(self._course,title, description, deadline)
+            task = self._task_repo.create_task(
+                self._course, title, description, deadline)
             self._course.tasks.append(task)
 
     def get_tasks_by_course(self, course):

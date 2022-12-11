@@ -11,7 +11,8 @@ class CourseView:
         self._show_create_task_view = show_create_task_view
         self._show_task_view = show_task_view
         self._course = study_app_service.get_current_course()
-        self._course.tasks = study_app_service.get_tasks_by_course(self._course)
+        self._course.tasks = study_app_service.get_tasks_by_course(
+            self._course)
 
         self._initialize()
 
@@ -22,11 +23,12 @@ class CourseView:
         self._frame.destroy()
 
     def _initialize_task_entity(self, task):
-        
+
         task_button = ttk.Button(
             master=self._frame,
-            text= f"{task.title}",
-            command=lambda: [study_app_service.set_current_task(task), self._show_task_view()]
+            text=f"{task.title}",
+            command=lambda: [study_app_service.set_current_task(
+                task), self._show_task_view()]
         )
 
         task_button.grid(padx=5, pady=5, sticky=constants.EW)
@@ -51,7 +53,7 @@ class CourseView:
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        label.grid(row=0, padx=5, pady= 5, sticky=constants.W)
+        label.grid(row=0, padx=5, pady=5, sticky=constants.W)
 
         current_date = date.today()
 

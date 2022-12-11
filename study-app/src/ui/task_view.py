@@ -49,8 +49,8 @@ class CreateTaskView:
             text="Select due date"
         )
 
-        self._deadline_entry=DateEntry(
-            master=self._frame, 
+        self._deadline_entry = DateEntry(
+            master=self._frame,
             selectmode="day",
             textvariable=StringVar()
         )
@@ -118,6 +118,7 @@ class CreateTaskView:
 
         self._hide_error()
 
+
 class TaskView:
     def __init__(self, root, show_course_view):
         self._root = root
@@ -157,7 +158,7 @@ class TaskView:
             master=self._frame,
             text="Set done",
             command=lambda: [
-                study_app_service.change_task_state(self._task, 0), 
+                study_app_service.change_task_state(self._task, 0),
                 self.show_course_view()
             ]
         )
