@@ -23,8 +23,10 @@ class UserRepository:
             "SELECT id, username, password FROM users WHERE username=?", [username])
         row = cursor.fetchone()
 
-        return User(row[0], row[1], row[2])
-
+        if row is not None:
+            return User(row[0], row[1], row[2])
+        else:
+            return
 
     def create_user(self, username: str, password: str):
 
