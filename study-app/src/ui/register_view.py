@@ -103,7 +103,7 @@ class RegisterView:
         register_button = ttk.Button(
             master=self._frame,
             text="Register",
-            command=self._register
+            command=self._registeration_handler
         )
 
         return_button = ttk.Button(
