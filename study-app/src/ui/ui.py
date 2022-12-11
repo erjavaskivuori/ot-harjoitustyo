@@ -3,6 +3,7 @@ from ui.login_view import LoginView
 from ui.register_view import RegisterView
 from ui.all_courses_view import AllCoursesView
 from ui.course_view import CourseView
+from ui.task_view import CreateTaskView, TaskView
 
 
 class UI:
@@ -68,7 +69,29 @@ class UI:
 
         self._current_view = CourseView(
             self._root,
-            self._show_all_courses_view
+            self._show_all_courses_view,
+            self._show_create_task_view,
+            self._show_task_view
+        )
+
+        self._current_view.pack()
+
+    def _show_create_task_view(self):
+        self._hide_current_view()
+
+        self._current_view = CreateTaskView(
+            self._root,
+            self._show_course_view
+        )
+
+        self._current_view.pack()
+
+    def _show_task_view(self):
+        self._hide_current_view()
+
+        self._current_view = TaskView(
+            self._root,
+            self._show_course_view
         )
 
         self._current_view.pack()
