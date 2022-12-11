@@ -4,7 +4,7 @@ from services.study_app_services import study_app_service, UsernameExistsError
 
 class RegisterView:
     """Rekisteröitymisnäkymästä vastaava luokka."""
-    
+
     def __init__(self, root, register, show_welcome_view):
         """Luokan konstruktori. Luo uuden rekisteröitymisnäkymän.
 

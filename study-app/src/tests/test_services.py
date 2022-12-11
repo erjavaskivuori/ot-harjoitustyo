@@ -88,8 +88,10 @@ class TestStudyAppServices(unittest.TestCase):
         self.test_user = User(1, "testuser", "password")
         self.course1 = Course(1, self.test_user, "course1", 1)
         self.course2 = Course(2, self.test_user, "course2", 1)
-        self.task1 = Task(1, self.course1, "title1", "description1", 11/11/2022, 1)
-        self.task2 = Task(2, self.course2, "title2", "description2", 12/12/2022, 1)
+        self.task1 = Task(1, self.course1, "title1",
+                          "description1", 11/11/2022, 1)
+        self.task2 = Task(2, self.course2, "title2",
+                          "description2", 12/12/2022, 1)
 
     def test_login_with_valid_credentials(self):
         self.studyapp_service.create_user(

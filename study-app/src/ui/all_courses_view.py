@@ -80,7 +80,7 @@ class AllCoursesView:
         Args:
             course: Kurssi Course-oliona.
         """
-        
+
         course_button = ttk.Button(
             master=self._frame,
             text=f"{course.name}",

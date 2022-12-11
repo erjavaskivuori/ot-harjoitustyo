@@ -6,8 +6,8 @@ def main():
     window = Tk()
     window.title("Study-app")
 
-    ui = UI(window)
-    ui.start()
+    user_interface = UI(window)
+    user_interface.start()
 
     window.mainloop()
 

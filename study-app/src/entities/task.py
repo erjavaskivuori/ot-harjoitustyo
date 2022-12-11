@@ -13,8 +13,9 @@ class Task:
         deadline: Päivämääräolio, joka kuvaa tehtävän määräpäivää.
         state: Kokonaislukuarvo, joka kertoo, onko tehtävä jo suoritettu.
     """
+
     def __init__(self, task_id: int, course: Course, title: str,
-        description: str, deadline: date, state: int):
+                 description: str, deadline: date, state: int):
         """Luokan konstruktori, joka luo Task-olion.
 
         Args:

@@ -81,7 +81,7 @@ class TaskRepository:
             task: Muutettava tehtävä Task-oliona.
             state:
                 Kokonaislukuarvo, joka kuvaa tilaa, johon tehtävä halutaan muuttaa.
-                Arvo on 0 eli tehty tai 1 eli tekemätön. 
+                Arvo on 0 eli tehty tai 1 eli tekemätön.
         """
 
         cursor = self._connection.cursor()
@@ -96,7 +96,7 @@ class TaskRepository:
     def remove_all_tasks(self):
         """Poistaa kaikki tehtävät tietokannasta.
         """
-        
+
         cursor = self._connection.cursor()
         cursor.execute("""DELETE FROM courseTasks""")
         self._connection.commit()

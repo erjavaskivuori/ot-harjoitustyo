@@ -62,7 +62,8 @@ class StudyAppServices:
             password: Käyttäjän salasana merkkijonoarvona.
 
         Raises:
-            InvalidCredentialsError: Virhe, joka tapahtuu, kun käyttäjänimi ja salasana eivät täsmää.
+            InvalidCredentialsError: Virhe, joka tapahtuu,
+                kun käyttäjänimi ja salasana eivät täsmää.
 
         Returns:
             Palauttaa kirjautuneen käyttäjän User-oliona.
@@ -174,7 +175,7 @@ class StudyAppServices:
 
         Args:
             task: Tehtävä Task-oliona.
-            state: 
+            state:
                 Kokonaislukuarvo, joka kuvaa tilaa, johon tehtävä halutaan muuttaa.
                 Arvo on 0 eli tehty tai 1 eli tekemätön.
         """
