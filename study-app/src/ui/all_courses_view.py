@@ -1,5 +1,5 @@
 from tkinter import ttk, constants, StringVar
-from services.study_app_services import study_app_service
+from services.study_app_service import study_app_service
 
 
 class AllCoursesView:

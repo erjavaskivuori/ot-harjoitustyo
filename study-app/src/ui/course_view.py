@@ -1,6 +1,6 @@
 from tkinter import ttk, constants, messagebox
 from datetime import date
-from services.study_app_services import study_app_service
+from services.study_app_service import study_app_service
 
 
 class CourseView:
