@@ -10,7 +10,7 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 - [Käyttöohje](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kayttoohje.md)
 
-- [Release]()
+- [Releaset](https://github.com/erjavaskivuori/ot-harjoitustyo/releases)
 
 - [Tuntikirjanpito](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/tuntikirjanpito.md)
 
