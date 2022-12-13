@@ -12,3 +12,9 @@
 ## Viikko 5
 - Lisätty testikattavuutta
 - Luotu näkymä yksittäiselle kurssille
+
+## Viikko 6
+- Käyttäjä voi luoda kurssille tehtäviä
+- Tehtävän merkitä tehdyiksi ja palauttaa myös takaisin tekemättömäksi
+- Käyttäjä voi poistaa kurssin
+- Refaktoroitu koodia

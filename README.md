@@ -4,13 +4,19 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 ## Dokumentaatio
 
-- [vaatimusmaarittely.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/vaatimusmaarittely.md)
 
-- [tuntikirjanpito.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/tuntikirjanpito.md)
+- [Arkkitehtuurikuvaus](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/arkkitehtuuri.md)
 
-- [changelog.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
+- [Käyttöohje](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kayttoohje.md)
 
-- [arkkitehtuuri.md](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/arkkitehtuuri.md)
+- [Release]()
+
+- [Tuntikirjanpito](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/tuntikirjanpito.md)
+
+- [Changelog](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
+
+
 
 ## Asennus
 1. Riippuvuudet asennetaan komennolla:

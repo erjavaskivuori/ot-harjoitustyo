@@ -14,14 +14,14 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 ### Kirjautuneena järjestelmään
 
 * Käyttäjä näkee omat kurssit (tehty)
-* Käyttäjä voi luoda uuden kurssin (tehty) ja sille tehtävälistan
-* Käyttäjä voi merkitä tehtävän tehdyksi, jolloin se poistuu
-* Käyttäjä voi merkitä kurssin suoritetuksi, jolloin koko kurssi ja sen sisältämä tehtävälista poistuvat
+* Käyttäjä voi luoda uuden kurssin (tehty) ja sille tehtävälistan (tehty)
+* Käyttäjä voi merkitä tehtävän tehdyksi, jolloin se poistuu (tehty, toteutus kuitenkin hieman erilainen ja tehtävän voi vielä palauttaa)
+* Käyttäjä voi merkitä kurssin suoritetuksi, jolloin koko kurssi ja sen sisältämä tehtävälista poistuvat (tehty)
 
 ## Jatkokehitysideoita
 
-* Käyttäjä voi lisätä tehtäville "deadlinen"
+* Käyttäjä voi lisätä tehtäville "deadlinen" (tehty)
 * Käyttäjä voi tarkastella menneitä kursseja
-* Käyttäjä voi merkitä palauttaa tehdyn tehtävän/kurssin tekemättömäksi
+* Käyttäjä voi merkitä palauttaa tehdyn tehtävän/kurssin tekemättömäksi (tehty, tehtävän osalta)
 * Käyttäjä voi muokata kurssin nimeä tai tehtäviä
 * Erilaiset käyttäjäprofiilit: esimerkiksi opettaja, joka voi jakaa opiskelijoille  tehtävälistan kurssin suorituksista
