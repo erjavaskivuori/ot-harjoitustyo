@@ -11,4 +11,4 @@
 |9.12.|5|Lisätty mahdollisuus luoda tehtävä.|
 |11.12.|5|Lisätty tehtävän merkitseminen tehdyksi/tekemättömäksi ja kurssin poistaminen. Paranneltu käyttöliittymän ulkonäköä. Aloitettu docstring-dokumentointi.|
 |12.12.|4|Tehty alustava arkkitehtuurikuvaus ja käyttöohje.|
-|yht|26||
+|yht|40||
