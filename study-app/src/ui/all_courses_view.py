@@ -5,7 +5,7 @@ from services.study_app_service import study_app_service
 class AllCoursesView:
     """Kaikkien käyttäjän kurssien näkymästä vastaava luokka."""
 
-    def __init__(self, root, show_welcome_view, show_course_view):
+    def __init__(self, root, show_welcome_view, show_course_view, show_all_tasks_view):
         """Luokan konstruktori. Luo uuden kaikkien kurssien näkymän.
 
         Args:
@@ -19,6 +19,7 @@ class AllCoursesView:
         self._root = root
         self._show_welcome_view = show_welcome_view
         self._show_course_view = show_course_view
+        self._show_all_tasks_view = show_all_tasks_view
         self._user = study_app_service.get_current_user()
         self._courses = study_app_service.get_undone_courses()
         self._frame = None
@@ -132,5 +133,13 @@ class AllCoursesView:
         if self._courses is not None:
             for course in self._courses:
                 self._initialize_course_entity(course)
+
+        tasks_view_button = ttk.Button(
+            master=self._frame,
+            text="See all tasks",
+            command=self._show_all_tasks_view
+        )
+
+        tasks_view_button.grid(padx=5, pady=5, sticky=constants.W)
 
         self._hide_error()
