@@ -4,6 +4,7 @@ from ui.register_view import RegisterView
 from ui.all_courses_view import AllCoursesView
 from ui.course_view import CourseView
 from ui.task_view import CreateTaskView, TaskView
+from ui.all_tasks_view import AllTasksView
 
 
 class UI:
@@ -80,7 +81,8 @@ class UI:
         self._current_view = AllCoursesView(
             self._root,
             self._show_welcome_view,
-            self._show_course_view
+            self._show_course_view,
+            self._show_all_tasks_view
         )
 
         self._current_view.pack()
@@ -119,6 +121,19 @@ class UI:
         self._current_view = TaskView(
             self._root,
             self._show_course_view
+        )
+
+        self._current_view.pack()
+
+    def _show_all_tasks_view(self):
+        """Näyttää kaikki käyttäjän tehtävät järjestettynä määräpäivän mukaan."""
+
+        self._hide_current_view()
+
+        self._current_view = AllTasksView(
+            self._root,
+            self._show_all_courses_view,
+            self._show_task_view
         )
 
         self._current_view.pack()
