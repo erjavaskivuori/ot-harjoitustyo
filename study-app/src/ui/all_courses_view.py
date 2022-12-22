@@ -1,5 +1,6 @@
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service
+from ui.navigation import Navigation
 
 
 class AllCoursesView:
@@ -101,6 +102,10 @@ class AllCoursesView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        navigation = Navigation(self._frame, self, self._show_welcome_view)
+        navigation.initialize(0)
+
         label = ttk.Label(
             master=self._frame,
             text=f"Welcome {self._user.username}!"
@@ -108,15 +113,15 @@ class AllCoursesView:
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        label.grid(row=0, padx=5, pady=5, sticky=constants.W)
+        label.grid(row=2, padx=5, pady=5, sticky=constants.W)
 
-        logout_button = ttk.Button(
+        tasks_view_button = ttk.Button(
             master=self._frame,
-            text="Logout",
-            command=self._show_welcome_view
+            text="See all tasks",
+            command=self._show_all_tasks_view
         )
 
-        logout_button.grid(row=0, padx=5, pady=5, sticky=constants.E)
+        tasks_view_button.grid(padx=5, pady=5, sticky=constants.N)
 
         self._create_course_field()
 
@@ -133,13 +138,5 @@ class AllCoursesView:
         if self._courses is not None:
             for course in self._courses:
                 self._initialize_course_entity(course)
-
-        tasks_view_button = ttk.Button(
-            master=self._frame,
-            text="See all tasks",
-            command=self._show_all_tasks_view
-        )
-
-        tasks_view_button.grid(padx=5, pady=5, sticky=constants.W)
 
         self._hide_error()
