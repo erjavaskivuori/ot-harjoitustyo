@@ -1,6 +1,7 @@
 from tkinter import ttk, constants, messagebox
 from datetime import date
 from services.study_app_service import study_app_service
+import ui.styles as s
 
 
 class CourseView:
@@ -27,6 +28,7 @@ class CourseView:
         self._course = study_app_service.get_current_course()
         self._course.tasks = study_app_service.get_tasks_by_course(
             self._course)
+        self._headers = s.headers()
 
         self._initialize()
 
@@ -71,7 +73,8 @@ class CourseView:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
             master=self._frame,
-            text=f"{self._course.name}"
+            text=f"{self._course.name}",
+            font=self._headers
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
@@ -97,7 +100,8 @@ class CourseView:
 
         todo_label = ttk.Label(
             master=self._frame,
-            text="TO-DO:"
+            text="To-do:",
+            font=self._headers
         )
 
         todo_label.grid(padx=5, pady=5, sticky=constants.W)
@@ -108,7 +112,8 @@ class CourseView:
 
         done_label = ttk.Label(
             master=self._frame,
-            text="\nCompleted tasks:"
+            text="\nCompleted tasks:",
+            font=self._headers
         )
 
         done_label.grid(padx=5, pady=5, sticky=constants.W)
