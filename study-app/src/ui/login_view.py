@@ -1,5 +1,6 @@
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service, InvalidCredentialsError
+import ui.styles as s
 
 
 class LoginView:
@@ -82,7 +83,9 @@ class LoginView:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
             master=self._frame,
-            text="Login")
+            text="Login",
+            font=s.headers()
+        )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 

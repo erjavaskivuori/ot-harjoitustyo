@@ -1,5 +1,6 @@
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service, UsernameExistsError
+import ui.styles as s
 
 
 class RegisterView:
@@ -104,7 +105,9 @@ class RegisterView:
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(
             master=self._frame,
-            text="Register")
+            text="Register",
+            font = s.headers()
+        )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 

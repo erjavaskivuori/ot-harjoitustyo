@@ -2,6 +2,7 @@ import tkinter as tk
 from tkcalendar import DateEntry
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service
+import ui.styles as s
 
 
 class CreateTaskView:
@@ -55,7 +56,13 @@ class CreateTaskView:
             master=self._frame,
             text="Description (optional)"
         )
-        self._description_entry = tk.Text(master=self._frame, height=4)
+
+        self._description_entry = tk.Text(
+            master=self._frame,
+            height=4,
+            background="white",
+            relief="solid"
+        )
 
         title_label.grid(padx=5, pady=5, sticky=constants.W)
         self._description_entry.grid(padx=5, pady=5, sticky=constants.EW)
@@ -74,8 +81,8 @@ class CreateTaskView:
             textvariable=StringVar()
         )
 
-        label.grid(sticky=constants.W)
-        self._deadline_entry.grid(sticky=constants.W)
+        label.grid(padx=5, pady=5, sticky=constants.W)
+        self._deadline_entry.grid(padx=5, pady=5, sticky=constants.W)
 
     def _create_task_handler(self):
         """Vastaa tehtävän luomisesta."""
@@ -158,6 +165,7 @@ class TaskView:
         self._task = study_app_service.get_current_task()
         self._task_state = self._task.state
         self._frame = None
+        self._headers = s.headers()
 
         self.initialize()
 
@@ -173,7 +181,8 @@ class TaskView:
         self._frame = ttk.Frame(master=self._root)
         title = ttk.Label(
             master=self._frame,
-            text=f"{self._task.title}"
+            text=f"{self._task.title}",
+            font=self._headers
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
@@ -199,7 +208,7 @@ class TaskView:
 
         set_undone = ttk.Button(
             master=self._frame,
-            text="Return task to TO-DO-list",
+            text="Return task to To-do-list",
             command=lambda: [
                 study_app_service.change_task_state(self._task, 1),
                 self.show_course_view()
