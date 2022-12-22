@@ -62,17 +62,18 @@ class TaskRepository:
             user: User-oliona käyttäjä, johon liittyvät tehtävät palautetaan.
 
         Returns:
-            Palauttaa listan Task-olioita.
+            Palauttaa listan, joka sisältää tehtävän tiedot sisältäviä listoja.
         """
 
         cursor = self._connection.cursor()
         cursor.execute(
             """SELECT T.title, C.name, T.deadline, T.state
-            FROM courseTasks T, courses C, users U
-            WHERE T.course_id = C.id AND C.user_id = U.id AND U.id=?""", [user.id])
+            FROM courses C, courseTasks T 
+            WHERE C.visibility = 1 AND T.course_id = C.id AND C.user_id=?
+            ORDER BY T.deadline""", [user.id])
         rows = cursor.fetchall()
 
-        return [[row] for row in rows]
+        return [[row[0], row[1], row[2], row[3]] for row in rows]
 
     def change_state(self, task: Task, state):
         """Muuttaa yksittäisen tehtävän tilaa tehdyksi tai tekemättömäksi.
