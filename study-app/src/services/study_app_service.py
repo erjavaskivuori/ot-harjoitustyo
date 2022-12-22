@@ -200,5 +200,13 @@ class StudyAppService:
 
         return self._task
 
+    def get_all_users_tasks(self):
+        """Palauttaa kaikki käyttäjän tehtävät.
+
+        Returns:
+            Palauttaa listan tehtävän tiedot sisältäviä listoja.
+        """
+        return self._task_repo.get_all_users_tasks(self._user)
+
 
 study_app_service = StudyAppService()
