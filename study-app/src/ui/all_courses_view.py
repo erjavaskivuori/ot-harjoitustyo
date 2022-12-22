@@ -1,6 +1,7 @@
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service
 from ui.navigation import Navigation
+import ui.styles as s
 
 
 class AllCoursesView:
@@ -27,6 +28,7 @@ class AllCoursesView:
         self._course_name_entry = None
         self._error = None
         self._error_label = None
+        self._headers = s.headers()
 
         self._initialize()
 
@@ -108,7 +110,8 @@ class AllCoursesView:
 
         label = ttk.Label(
             master=self._frame,
-            text=f"Welcome {self._user.username}!"
+            text=f"Welcome {self._user.username}!",
+            font=self._headers
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
