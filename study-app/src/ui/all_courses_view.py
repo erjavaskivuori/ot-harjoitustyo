@@ -62,10 +62,10 @@ class AllCoursesView:
             command=self._create_course_handler
         )
 
-        create_label.grid(row=2, column=0, padx=5, pady=5, sticky=constants.W)
+        create_label.grid(row=4, column=0, padx=5, pady=5, sticky=constants.W)
         self._course_name_entry.grid(
-            row=3, padx=5, pady=5, sticky=constants.EW)
-        create_button.grid(row=3, padx=5, pady=5, sticky=constants.E)
+            row=5, padx=5, pady=5, sticky=constants.EW)
+        create_button.grid(row=5, padx=5, pady=5, sticky=constants.E)
 
     def _create_course_handler(self):
         """Vastaa uuden kurssin luomisesta."""
@@ -124,7 +124,7 @@ class AllCoursesView:
             command=self._show_all_tasks_view
         )
 
-        tasks_view_button.grid(padx=5, pady=5, sticky=constants.N)
+        tasks_view_button.grid(row=3, padx=5, pady=5, sticky=constants.N)
 
         self._create_course_field()
 
