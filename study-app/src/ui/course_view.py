@@ -1,13 +1,13 @@
 from tkinter import ttk, constants, messagebox
-from datetime import date
 from services.study_app_service import study_app_service
+from ui.navigation import Navigation
 import ui.styles as s
 
 
 class CourseView:
     """Kurssinäkymästä vastaava luokka. Näyttää yksittäisen kurssin tehtävät."""
 
-    def __init__(self, root, previous_view, create_task, show_task):
+    def __init__(self, root, previous_view, create_task, show_task, logout):
         """Luokan konstruktori. Luo uuden kurssinäkymän.
 
         Args:
@@ -25,6 +25,7 @@ class CourseView:
         self._previous_view = previous_view
         self._create_task = create_task
         self._show_task = show_task
+        self._logout = logout
         self._course = study_app_service.get_current_course()
         self._course.tasks = study_app_service.get_tasks_by_course(
             self._course)
@@ -71,6 +72,10 @@ class CourseView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        navigation = Navigation(self._frame, self._previous_view, self._logout)
+        navigation.initialize(1)
+
         label = ttk.Label(
             master=self._frame,
             text=f"{self._course.name}",
@@ -79,16 +84,7 @@ class CourseView:
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        label.grid(row=0, padx=5, pady=5, sticky=constants.W)
-
-        current_date = date.today()
-
-        date_label = ttk.Label(
-            master=self._frame,
-            text=current_date
-        )
-
-        date_label.grid(row=0, padx=5, pady=5, sticky=constants.E)
+        label.grid(row=1, padx=5, pady=5, sticky=constants.W)
 
         add_task_button = ttk.Button(
             master=self._frame,
@@ -129,11 +125,3 @@ class CourseView:
         )
 
         remove_button.grid(padx=5, pady=5, sticky=constants.E)
-
-        return_button = ttk.Button(
-            master=self._frame,
-            text="Return",
-            command=self._previous_view
-        )
-
-        return_button.grid(padx=5, pady=5, sticky=constants.W)

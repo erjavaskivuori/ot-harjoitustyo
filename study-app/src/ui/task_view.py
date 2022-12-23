@@ -2,13 +2,14 @@ import tkinter as tk
 from tkcalendar import DateEntry
 from tkinter import ttk, constants, StringVar
 from services.study_app_service import study_app_service
+from ui.navigation import Navigation
 import ui.styles as s
 
 
 class CreateTaskView:
     """Tehtävän luomisnäkymästä vastaava luokka."""
 
-    def __init__(self, root, course_view):
+    def __init__(self, root, course_view, logout):
         """Luokan konstruktori. Luo uuden luomisnäkymän.
 
         Args:
@@ -21,6 +22,7 @@ class CreateTaskView:
         self._root = root
         self._frame = None
         self._course_view = course_view
+        self._logout = logout
         self._title_entry = None
         self._description_entry = None
         self._deadline_entry = None
@@ -110,6 +112,10 @@ class CreateTaskView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        navigation = Navigation(self._frame, self._course_view, self._logout)
+        navigation.initialize(1)
+
         label = ttk.Label(
             master=self._frame,
             text="Create new task"
@@ -117,7 +123,7 @@ class CreateTaskView:
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        label.grid(row=0, sticky=constants.W)
+        label.grid(row=1, sticky=constants.W)
 
         self._title_field()
 
@@ -136,14 +142,7 @@ class CreateTaskView:
             command=self._create_task_handler
         )
 
-        return_button = ttk.Button(
-            master=self._frame,
-            text="Return",
-            command=self._course_view
-        )
-
         add_task_button.grid(padx=5, pady=5, sticky=constants.S)
-        return_button.grid(padx=5, pady=5, sticky=constants.W)
 
         self._hide_error()
 
@@ -152,7 +151,7 @@ class TaskView:
     """Tehtävänäkymästä vastaava luokka. Näyttää yksittäisen
         tehtävän tarkemmat tiedot."""
 
-    def __init__(self, root, previous_view):
+    def __init__(self, root, previous_view, logout):
         """Luokan konstruktori. Luo uuden tehtävänäkymän.
 
         Args:
@@ -163,6 +162,7 @@ class TaskView:
 
         self._root = root
         self._previous_view = previous_view
+        self._logout = logout
         self._task = study_app_service.get_current_task()
         self._task_state = self._task.state
         self._frame = None
@@ -180,6 +180,10 @@ class TaskView:
 
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
+
+        navigation = Navigation(self._frame, self._previous_view, self._logout)
+        navigation.initialize(1)
+
         title = ttk.Label(
             master=self._frame,
             text=f"{self._task.title}",
@@ -216,19 +220,11 @@ class TaskView:
             ]
         )
 
-        return_button = ttk.Button(
-            master=self._frame,
-            text="Return",
-            command=self._previous_view
-        )
-
-        title.grid(row=0, padx=5, pady=5, sticky=constants.W)
-        description.grid(row=2, padx=5, pady=5, sticky=constants.W)
-        deadline.grid(row=8, padx=5, pady=5, sticky=constants.W)
+        title.grid(row=1, padx=5, pady=5, sticky=constants.W)
+        description.grid(row=3, padx=5, pady=5, sticky=constants.W)
+        deadline.grid(row=9, padx=5, pady=5, sticky=constants.W)
 
         if self._task.state == 1:
-            set_done.grid(row=10, padx=5, pady=5, sticky=constants.W)
+            set_done.grid(row=11, padx=5, pady=5, sticky=constants.W)
         if self._task.state == 0:
-            set_undone.grid(row=10, padx=5, pady=5, sticky=constants.W)
-
-        return_button.grid(row=12, padx=5, pady=5, sticky=constants.W)
+            set_undone.grid(row=11, padx=5, pady=5, sticky=constants.W)
