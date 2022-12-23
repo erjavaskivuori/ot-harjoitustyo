@@ -2,7 +2,7 @@ from datetime import date
 from tkinter import ttk, constants, messagebox
 from PIL import Image, ImageTk
 from services.study_app_service import study_app_service
-import ui
+
 
 class Navigation():
     def __init__(self, frame, previous_view, logout):
@@ -17,13 +17,12 @@ class Navigation():
         """
 
         self._frame = frame
-        self._previous_view =previous_view
+        self._previous_view = previous_view
         self._logout = logout
 
         photo = Image.open("src/ui/arrow.png")
         photo = photo.resize((14, 14), Image.ANTIALIAS)
-        self._img= ImageTk.PhotoImage(photo)
-
+        self._img = ImageTk.PhotoImage(photo)
 
     def _initialize_logout_popup(self):
         """Alustaa viesti-ikkunan käyttäjän uloskirjautumiselle.
@@ -44,7 +43,7 @@ class Navigation():
             master=self._frame,
             image=self._img,
             style="Custom.TButton",
-            command= lambda: [self._frame.destroy(), view()]
+            command=lambda: [self._frame.destroy(), view()]
         )
 
         return_button.grid(row=0, sticky=constants.NW)

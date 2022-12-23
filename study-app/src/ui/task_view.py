@@ -121,7 +121,7 @@ class CreateTaskView:
         label = ttk.Label(
             master=self._frame,
             text="Create new task",
-            font = font.Font(weight='bold')
+            font=font.Font(weight='bold')
         )
 
         label.grid(row=1, padx=5, pady=5, sticky=constants.W)

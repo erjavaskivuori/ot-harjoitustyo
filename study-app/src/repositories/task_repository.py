@@ -63,7 +63,7 @@ class TaskRepository:
         cursor = self._connection.cursor()
         cursor.execute(
             """SELECT T.title, C.name, T.deadline, T.state
-            FROM courses C, courseTasks T 
+            FROM courses C, courseTasks T
             WHERE C.visibility = 1 AND T.course_id = C.id AND C.user_id=?
             ORDER BY T.deadline""", [user.id])
         rows = cursor.fetchall()

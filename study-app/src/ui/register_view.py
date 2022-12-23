@@ -107,7 +107,7 @@ class RegisterView:
         label = ttk.Label(
             master=self._frame,
             text="Register",
-            font = font.Font(weight='bold')
+            font=font.Font(weight='bold')
         )
 
         label.grid(padx=5, pady=5, sticky=constants.N)

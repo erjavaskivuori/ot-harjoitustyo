@@ -2,6 +2,7 @@ from tkinter import ttk, constants, font
 from services.study_app_service import study_app_service
 from ui.navigation import Navigation
 
+
 class AllTasksView():
     def __init__(self, root, previous_view, logout):
         """Luokan konstruktori. Luo uuden näkymän kaikille käyttäjän tehtäville.
