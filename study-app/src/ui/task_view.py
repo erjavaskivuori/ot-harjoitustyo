@@ -97,11 +97,11 @@ class CreateTaskView:
 
         if title == "":
             self._show_error("Title must have at least one character")
-        if len(title) > 30:
+        elif len(title) > 30:
             self._show_error("Title is too long")
-
-        study_app_service.add_task(title, description, deadline)
-        self._course_view()
+        else:
+            study_app_service.add_task(title, description, deadline)
+            self._course_view()
 
     def _show_error(self, error):
         if self._error is not None:
@@ -128,11 +128,15 @@ class CreateTaskView:
 
         self._title_field()
 
+        self._error = StringVar(self._frame)
+
         self._error_label = ttk.Label(
             master=self._frame,
             textvariable=self._error,
             foreground="red"
         )
+
+        self._error_label.grid(padx=5, pady=5)
 
         self._description_field()
         self._deadline_field()
@@ -225,6 +229,6 @@ class TaskView:
         deadline.grid(row=9, padx=5, pady=5, sticky=constants.W)
 
         if self._task.state == 1:
-            set_done.grid(row=11, padx=5, pady=5, sticky=constants.W)
+            set_done.grid(row=11, padx=5, pady=10, sticky=constants.W)
         if self._task.state == 0:
-            set_undone.grid(row=11, padx=5, pady=5, sticky=constants.W)
+            set_undone.grid(row=11, padx=5, pady=10, sticky=constants.W)
