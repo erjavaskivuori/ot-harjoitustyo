@@ -7,24 +7,24 @@ import ui.styles as s
 class CourseView:
     """Kurssinäkymästä vastaava luokka. Näyttää yksittäisen kurssin tehtävät."""
 
-    def __init__(self, root, show_all_courses_view, show_create_task_view, show_task_view):
+    def __init__(self, root, previous_view, create_task, show_task):
         """Luokan konstruktori. Luo uuden kurssinäkymän.
 
         Args:
             root: TKinter-elementti, jonka sisään näkymä alustetaan.
-            show_all_courses_view:
+            previous_view:
                 Kutsuttava arvo, jota kutsutaan, kun palataan kaikkien kurssien näkymään.
-            show_create_task_view:
+            create_task:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävän luomisnäkymään.
-            show_task_view:
+            show_task:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävänäkymään.
         """
 
         self._root = root
         self._frame = None
-        self._show_all_courses_view = show_all_courses_view
-        self._show_create_task_view = show_create_task_view
-        self._show_task_view = show_task_view
+        self._previous_view = previous_view
+        self._create_task = create_task
+        self._show_task = show_task
         self._course = study_app_service.get_current_course()
         self._course.tasks = study_app_service.get_tasks_by_course(
             self._course)
@@ -51,7 +51,7 @@ class CourseView:
             master=self._frame,
             text=f"{task.title}",
             command=lambda: [study_app_service.set_current_task(
-                task), self._show_task_view()]
+                task), self._show_task()]
         )
 
         task_button.grid(padx=5, pady=5, sticky=constants.EW)
@@ -67,7 +67,7 @@ class CourseView:
 
         if msg_box == True:
             study_app_service.remove_course(self._course)
-            self._show_all_courses_view()
+            self._previous_view()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -93,7 +93,7 @@ class CourseView:
         add_task_button = ttk.Button(
             master=self._frame,
             text="Add task",
-            command=self._show_create_task_view
+            command=self._create_task
         )
 
         add_task_button.grid(sticky=constants.N)
@@ -133,7 +133,7 @@ class CourseView:
         return_button = ttk.Button(
             master=self._frame,
             text="Return",
-            command=self._show_all_courses_view
+            command=self._previous_view
         )
 
         return_button.grid(padx=5, pady=5, sticky=constants.W)
