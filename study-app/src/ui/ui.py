@@ -80,9 +80,9 @@ class UI:
 
         self._current_view = AllCoursesView(
             self._root,
-            self._show_welcome_view,
             self._show_course_view,
-            self._show_all_tasks_view
+            self._show_all_tasks_view,
+            self._show_welcome_view
         )
 
         self._current_view.pack()
@@ -96,7 +96,8 @@ class UI:
             self._root,
             self._show_all_courses_view,
             self._show_create_task_view,
-            self._show_task_view
+            self._show_task_view,
+            self._show_welcome_view
         )
 
         self._current_view.pack()
@@ -108,7 +109,8 @@ class UI:
 
         self._current_view = CreateTaskView(
             self._root,
-            self._show_course_view
+            self._show_course_view,
+            self._show_welcome_view
         )
 
         self._current_view.pack()
@@ -120,7 +122,8 @@ class UI:
 
         self._current_view = TaskView(
             self._root,
-            self._show_course_view
+            self._show_course_view,
+            self._show_welcome_view
         )
 
         self._current_view.pack()
@@ -133,7 +136,7 @@ class UI:
         self._current_view = AllTasksView(
             self._root,
             self._show_all_courses_view,
-            self._show_task_view
+            self._show_welcome_view
         )
 
         self._current_view.pack()
