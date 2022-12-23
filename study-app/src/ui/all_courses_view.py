@@ -72,7 +72,7 @@ class AllCoursesView:
 
         name = self._course_name_entry.get()
 
-        if name == "":
+        if name == "" or name.isspace():
             self._show_error("Give at least one character")
         else:
             study_app_service.create_course(name)

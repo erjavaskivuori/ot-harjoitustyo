@@ -78,13 +78,13 @@ class RegisterView:
         password1 = self._password_entry1.get()
         password2 = self._password_entry2.get()
 
-        if len(username) < 3:
+        if len(username) < 3 or username.isspace():
             self._show_error("Username must have at least 3 characters")
 
         if password1 != password2:
             self._show_error("Passwords don't match")
 
-        if len(password1) < 6:
+        if len(password1) < 6 or password1.isspace():
             self._show_error("Password must have at least 6 characters")
 
         try:

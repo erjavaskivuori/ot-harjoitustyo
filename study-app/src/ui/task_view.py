@@ -95,7 +95,7 @@ class CreateTaskView:
         deadline = self._deadline_entry.get_date()
         deadline = deadline.strftime("%d.%m.%Y")
 
-        if title == "":
+        if title == "" or title.isspace():
             self._show_error("Title must have at least one character")
         elif len(title) > 30:
             self._show_error("Title is too long")
