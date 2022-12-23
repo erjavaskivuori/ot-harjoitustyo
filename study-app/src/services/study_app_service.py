@@ -160,9 +160,7 @@ class StudyAppService:
         """
 
         if self._course is not None:
-            task = self._task_repo.create_task(
-                self._course, title, description, deadline)
-            self._course.tasks.append(task)
+            self._task_repo.create_task(self._course, title, description, deadline)
 
     def get_tasks_by_course(self, course):
         """Palauttaa tietyn kurssin tehtävät.
