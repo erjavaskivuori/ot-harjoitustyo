@@ -62,12 +62,6 @@ Kurssin nimeä klikkaamalla voi siirtyä kurssinäkymään, jossa voi tarkastell
 
 ![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/kaytto-ohje-kurssinakyma.png)
 
-## Kaikkien tehtävien katselu
-
-Kurssilistausnäkymästä voidaan siirtyä tarkastelemaan kaikkia omia tehtäviä painamalla "See all tasks" -painiketta. Tehtävät on listattu päivämäärän mukaiseen järjestykseen. 
-
-![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/kaytto-ohje-tehtavalista.png)
-
 Tässä, ja seuraavana mainituissa näkymissä, on vasemmassa yläkulmassa nuoli, jota painamalla voi siirtyä takaisin edelliseen näkymään.
 
 ## Uuden tehtävän luominen
@@ -87,6 +81,12 @@ Kurssinäkymässä tehtävää klikkaamalla voi siirtyä tehtävänäkymään, j
 Tehdyksi merkityn tehtävän voi palauttaa To-do-listaan painamalla tehtävänäkymässä "Return task to To-do-list" -painiketta.
 
 ![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/kaytto-ohje-tehtavanakyma2.png)
+
+## Kaikkien tehtävien katselu
+
+Kurssilistausnäkymästä voidaan siirtyä tarkastelemaan kaikkia omia tehtäviä painamalla "See all tasks" -painiketta. Tehtävät on listattu päivämäärän mukaiseen järjestykseen. 
+
+![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/kaytto-ohje-tehtavalista.png)
 
 ## Kurssin poistaminen
 
