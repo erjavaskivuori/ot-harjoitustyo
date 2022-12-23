@@ -1,6 +1,7 @@
 from repositories.user_repository import user_repository
 from repositories.course_repository import course_repository
 from repositories.task_repository import task_repository
+import bcrypt
 
 
 class UsernameExistsError(Exception):
@@ -52,7 +53,11 @@ class StudyAppService:
         if self._user_repo.find_by_username(username):
             raise UsernameExistsError()
 
-        self._user = self._user_repo.create_user(username, password)
+        byte_pwd = password.encode('utf-8')
+        my_salt = bcrypt.gensalt()
+        pwd_hash = bcrypt.hashpw(byte_pwd, my_salt)
+
+        self._user = self._user_repo.create_user(username, pwd_hash)
 
     def login(self, username, password):
         """Kirjaa käyttäjän sisään.
@@ -71,7 +76,9 @@ class StudyAppService:
 
         user = self._user_repo.find_by_username(username)
 
-        if not user or user.password != password:
+        password = password.encode('utf-8')
+
+        if not user or not bcrypt.checkpw(password, user.password):
             raise InvalidCredentialsError
 
         self._user = user
