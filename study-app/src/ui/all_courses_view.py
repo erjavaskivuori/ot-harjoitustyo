@@ -7,20 +7,20 @@ import ui.styles as s
 class AllCoursesView:
     """Kaikkien käyttäjän kurssien näkymästä vastaava luokka."""
 
-    def __init__(self, root, show_course_view, show_all_tasks_view, logout):
+    def __init__(self, root, show_course, show_all_tasks, logout):
         """Luokan konstruktori. Luo uuden kaikkien kurssien näkymän.
 
         Args:
             root: Tkinter-elementti, jonka sisään näkymä alustetaan.
             show_welcome_view:
                 Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
-            show_course_view:
+            show_course:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään kurssinäkymään.
         """
 
         self._root = root
-        self._show_course_view = show_course_view
-        self._show_all_tasks_view = show_all_tasks_view
+        self._show_course = show_course
+        self._show_all_tasks = show_all_tasks
         self._logout = logout
         self._user = study_app_service.get_current_user()
         self._courses = study_app_service.get_undone_courses()
@@ -76,7 +76,7 @@ class AllCoursesView:
             self._show_error("Give at least one character")
         else:
             study_app_service.create_course(name)
-            self._show_course_view()
+            self._show_course()
 
     def _initialize_course_entity(self, course):
         """Alustaa painikkeen yksittäiselle kurssille.
@@ -89,7 +89,7 @@ class AllCoursesView:
             master=self._frame,
             text=f"{course.name}",
             command=lambda: [study_app_service.set_current_course(
-                course), self._show_course_view()]
+                course), self._show_course()]
         )
 
         course_button.grid(padx=5, pady=5, sticky=constants.EW)
@@ -121,7 +121,7 @@ class AllCoursesView:
         tasks_view_button = ttk.Button(
             master=self._frame,
             text="See all tasks",
-            command=self._show_all_tasks_view
+            command=self._show_all_tasks
         )
 
         tasks_view_button.grid(row=3, padx=5, pady=5, sticky=constants.N)
