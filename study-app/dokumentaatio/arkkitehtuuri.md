@@ -10,7 +10,7 @@ Rakenne vastaa kolmitasoista kerrosarkkitehtuuria. Pakkaus _ui_ sisältää käy
 
 ## Käyttöliittymä
 
-Käyttöliittymä sisältää seitsemän erilaista näkymää:
+Käyttöliittymä sisältää kahdeksan erilaista näkymää:
 - Aloitusnäkymä, josta siirrytään kirjautumiseen tai rekisteröitymiseen
 - Kirjautuminen
 - Uuden käyttäjän luominen
@@ -18,6 +18,7 @@ Käyttöliittymä sisältää seitsemän erilaista näkymää:
 - Kurssisivu
 - Uuden tehtävän luominen
 - Tehtävä sivu
+- Listaus kaikista tehtävistä
 
 Näkymät on toteutettu omina luokkinaan. Näkymien näyttämisestä vastaa UI-luokka. Kukin näkymä näkyy aina yksi kerrallaan. Käyttöliittymä kutsuu sovelluslogiikasta vastaavan StudyAppService-luokan metodeja.
 
@@ -37,10 +38,43 @@ Ohjelman osien suhteita kuvaava pakkauskaavio:
 
 ![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/pakkauskaavio.drawio.png)
 
+## Tietojen pysyväistallennus
+
+Tietojen tallentamisesta vastaavat pakkaukseen _repositories_ UserRepository-, CourseRepository- ja TaskRepository-luokat. Tiedot tallennetaan SQLite-tietokantaan.
+
+### Tiedostot
+
+Kaikki käyttäjiin, kursseihin ja tehtäviin liittyvät tiedot tallennetaan samaan tiedostoon. Tiedoston nimi määritellään sovelluksen juureen sijoitetussa .env-konfiguraatiotiedostossa. 
+
+SQLite-tietokannassa käyttäjien tiedot tallennetaan users-tauluun, kurssien courses-tauluun ja tehtävien courseTasks-tauluun. Tietokannan taulut alustetaan initialize_database.py-tiedostossa.
+
 ## Päätoiminnallisuudet
+
+Sovelluksen toimintalogiikka kuvattuna päätoiminnallisuuksien osalta sekvenssikaavioina.
 
 ### Käyttäjän kirjautuminen
 
 Kun kirjautumisnäkymän kenttiin syötetään käyttäjätunnus ja salasana ja tämän jälkeen painetaan Login-painiketta, sovelluksessa kontrolli etenee seuraavasti:
 
 ![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/sekvenssi-kirjautuminen.png)
+
+
+### Uuden käyttäjän luominen
+
+Kun rekisteröitymisnäkymän kenttiin syötetään uusi käyttäjätunnus ja salasana ja tämän jälkeen painetaan Register-painiketta, sovelluksessa kontrolli etenee seuraavasti:
+
+![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/sekvenssi-kayttajan-luominen.png)
+
+### Kurssin luominen
+
+Kun kurssilistausnäkymässä annetaan uuden kurssin nimi ja painetaan Create-painiketta, sovelluksessa kontrolli etenee seuraavasti:
+
+![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/sekvenssi-kurssin-luominen.png)
+
+### Tehtävän lisääminen kurssille
+
+Uuden tehtävän luominen aloitetaan siirtymällä tehtävän luomisnäkymään painamalla kurssisivulla Add task -painiketta. Kun tehtävän luomisnäkymässä annetaan otsikko, kuvaus sekä valitaan tehtävän määräpäivä ja painetaan sitten Add-painiketta, sovelluksessa kontrolli etenee seuraavasti:
+
+![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/sekvenssi-tehtavan-luominen.png)
+
+Description on vapaaehtoinen, ja mikäli kenttään ei syötä mitään, tallentuu tietokantaan tyhjä merkkijono.
