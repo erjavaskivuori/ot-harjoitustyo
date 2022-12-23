@@ -28,6 +28,7 @@ class CreateTaskView:
         self._deadline_entry = None
         self._error = None
         self._error_label = None
+        self._headers = s.headers()
 
         self._initialize()
 
@@ -112,18 +113,18 @@ class CreateTaskView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         navigation = Navigation(self._frame, self._course_view, self._logout)
         navigation.initialize(1)
 
         label = ttk.Label(
             master=self._frame,
-            text="Create new task"
+            text="Create new task",
+            font = self._headers
         )
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
-
-        label.grid(row=1, sticky=constants.W)
+        label.grid(row=1, padx=5, pady=5, sticky=constants.W)
 
         self._title_field()
 
@@ -180,6 +181,7 @@ class TaskView:
 
     def initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         navigation = Navigation(self._frame, self._previous_view, self._logout)
         navigation.initialize(1)
@@ -189,8 +191,6 @@ class TaskView:
             text=f"{self._task.title}",
             font=self._headers
         )
-
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         description = ttk.Label(
             master=self._frame,

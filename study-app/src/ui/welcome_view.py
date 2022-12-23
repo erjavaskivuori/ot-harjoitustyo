@@ -33,6 +33,8 @@ class WelcomeView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+
         label = ttk.Label(
             master=self._frame,
             text="Welcome to Study-app!",
@@ -50,8 +52,6 @@ class WelcomeView:
             text="Register",
             command=self._register
         )
-
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         label.grid(padx=5, pady=5, sticky=constants.N)
         login_button.grid(padx=5, pady=5, sticky=constants.N)

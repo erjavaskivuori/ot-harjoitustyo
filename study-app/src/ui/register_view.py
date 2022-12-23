@@ -103,15 +103,15 @@ class RegisterView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+
         label = ttk.Label(
             master=self._frame,
             text="Register",
             font = s.headers()
         )
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
-
-        label.grid(columnspan=2, padx=5, pady=5, sticky=constants.N)
+        label.grid(padx=5, pady=5, sticky=constants.N)
 
         self._username_field()
         self._password_field()
@@ -136,9 +136,8 @@ class RegisterView:
             command=self._previous_view
         )
 
-        label.grid(padx=5, pady=5, sticky=constants.EW)
         self._error_label.grid(padx=5, pady=5)
-        register_button.grid(padx=5, pady=5, sticky=constants.EW)
-        return_button.grid(padx=5, pady=5, sticky=constants.S)
+        register_button.grid(padx=10, pady=10, sticky=constants.EW)
+        return_button.grid(padx=10, pady=10, sticky=constants.S)
 
         self._hide_error()

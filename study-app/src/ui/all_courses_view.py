@@ -104,6 +104,7 @@ class AllCoursesView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         navigation = Navigation(self._frame, None, self._logout)
         navigation.initialize(0)
@@ -114,17 +115,7 @@ class AllCoursesView:
             font=self._headers
         )
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
-
         label.grid(row=2, padx=5, pady=5, sticky=constants.W)
-
-        tasks_view_button = ttk.Button(
-            master=self._frame,
-            text="See all tasks",
-            command=self._show_all_tasks
-        )
-
-        tasks_view_button.grid(row=3, padx=5, pady=5, sticky=constants.N)
 
         self._create_course_field()
 
@@ -138,8 +129,24 @@ class AllCoursesView:
 
         self._error_label.grid(padx=5, pady=5)
 
-        if self._courses is not None:
+        if self._courses:
+            courses_label = ttk.Label(
+                master=self._frame,
+                text="Your courses:",
+                font=self._headers
+            )
+
+            courses_label.grid(padx=5, pady=5, sticky=constants.W)
+
             for course in self._courses:
                 self._initialize_course_entity(course)
+
+        tasks_view_button = ttk.Button(
+            master=self._frame,
+            text="See all tasks",
+            command=self._show_all_tasks
+        )
+
+        tasks_view_button.grid(padx=5, pady=20, sticky=constants.N)
 
         self._hide_error()

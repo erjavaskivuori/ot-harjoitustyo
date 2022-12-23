@@ -81,15 +81,15 @@ class LoginView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
+
         label = ttk.Label(
             master=self._frame,
             text="Login",
             font=s.headers()
         )
 
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
-
-        label.grid(columnspan=2, padx=5, pady=5, sticky=constants.N)
+        label.grid(padx=5, pady=5, sticky=constants.N)
 
         self._username_field()
         self._password_field()
@@ -114,9 +114,8 @@ class LoginView:
             command=self._previous_view
         )
 
-        label.grid(padx=5, pady=5, sticky=constants.EW)
         self._error_label.grid(padx=5, pady=5)
-        login_button.grid(padx=5, pady=5, sticky=constants.EW)
-        return_button.grid(padx=5, pady=5, sticky=constants.S)
+        login_button.grid(padx=10, pady=10, sticky=constants.EW)
+        return_button.grid(padx=10, pady=10, sticky=constants.S)
 
         self._hide_error()

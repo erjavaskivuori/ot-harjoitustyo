@@ -72,6 +72,7 @@ class CourseView:
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
+        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         navigation = Navigation(self._frame, self._previous_view, self._logout)
         navigation.initialize(1)
@@ -81,8 +82,6 @@ class CourseView:
             text=f"{self._course.name}",
             font=self._headers
         )
-
-        self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         label.grid(row=1, padx=5, pady=5, sticky=constants.W)
 
@@ -124,4 +123,4 @@ class CourseView:
             command=self._initialize_remove_course_popup
         )
 
-        remove_button.grid(padx=5, pady=5, sticky=constants.E)
+        remove_button.grid(padx=10, pady=10, sticky=constants.E)
