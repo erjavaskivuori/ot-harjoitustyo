@@ -25,9 +25,6 @@ class TaskRepository:
             title: Tehtävän otsikko merkkijonoarvona.
             description: Tehtävän tarkempi kuvaus merkkijonoarvona.
             deadline: Tehtävän määräpäivä päivämääräoliona.
-
-        Returns:
-            Palauttaa tallennetun tehtävän Task-oliona.
         """
 
         cursor = self._connection.cursor()
