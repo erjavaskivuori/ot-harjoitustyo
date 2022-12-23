@@ -46,7 +46,7 @@ Tietojen tallentamisesta vastaavat pakkaukseen _repositories_ UserRepository-, C
 
 Kaikki käyttäjiin, kursseihin ja tehtäviin liittyvät tiedot tallennetaan samaan tiedostoon. Tiedoston nimi määritellään sovelluksen juureen sijoitetussa .env-konfiguraatiotiedostossa. 
 
-SQLite-tietokannassa käyttäjien tiedot tallennetaan users-tauluun, kurssien courses-tauluun ja tehtävien courseTasks-tauluun. Tietokannan taulut alustetaan initialize_database.py-tiedostossa.
+SQLite-tietokannassa käyttäjien tiedot tallennetaan users-tauluun, kurssien courses-tauluun ja tehtävien courseTasks-tauluun. Tietokannan taulut alustetaan `initialize_database.py`-tiedostossa.
 
 ## Päätoiminnallisuudet
 
