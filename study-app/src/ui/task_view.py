@@ -16,6 +16,8 @@ class CreateTaskView:
             course_view :
                 Kutsuttava arvo, jota kutsutaan, kun luodaan kurssi tai
                 palataan takaisin kurssinäkymään.
+            logout:
+                Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
         """
 
         self._root = root

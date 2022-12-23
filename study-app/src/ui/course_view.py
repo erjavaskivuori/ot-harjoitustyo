@@ -17,6 +17,8 @@ class CourseView:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävän luomisnäkymään.
             show_task:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään tehtävänäkymään.
+            logout:
+                Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
         """
 
         self._root = root

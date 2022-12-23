@@ -11,10 +11,12 @@ class AllCoursesView:
 
         Args:
             root: Tkinter-elementti, jonka sisään näkymä alustetaan.
-            show_welcome_view:
-                Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
             show_course:
                 Kutsuttava arvo, jota kutsutaan, kun siirrytään kurssinäkymään.
+            show_all_tasks:
+                Kutsuttava arvo, jota kutsutaan, kun siirrytään kaikkien tehtävien näkymään.
+            logout:
+                Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu ulos.
         """
 
         self._root = root
