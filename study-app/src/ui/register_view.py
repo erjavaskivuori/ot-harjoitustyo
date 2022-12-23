@@ -81,17 +81,17 @@ class RegisterView:
         if len(username) < 3 or username.isspace():
             self._show_error("Username must have at least 3 characters")
 
-        if password1 != password2:
+        elif password1 != password2:
             self._show_error("Passwords don't match")
 
-        if len(password1) < 6 or password1.isspace():
+        elif len(password1) < 6 or password1.isspace():
             self._show_error("Password must have at least 6 characters")
-
-        try:
-            study_app_service.create_user(username, password1)
-            self._register()
-        except UsernameExistsError:
-            self._show_error(f"Usename {username} is taken")
+        else:
+            try:
+                study_app_service.create_user(username, password1)
+                self._register()
+            except UsernameExistsError:
+                self._show_error(f"Usename {username} is taken")
 
     def _show_error(self, error):
         if self._error is not None:
