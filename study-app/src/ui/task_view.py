@@ -8,19 +8,19 @@ import ui.styles as s
 class CreateTaskView:
     """Tehtävän luomisnäkymästä vastaava luokka."""
 
-    def __init__(self, root, show_course_view):
+    def __init__(self, root, course_view):
         """Luokan konstruktori. Luo uuden luomisnäkymän.
 
         Args:
             root: TKinter-elementti, jonka sisään näkymä alustetaan.
-            show_course_view :
+            course_view :
                 Kutsuttava arvo, jota kutsutaan, kun luodaan kurssi tai
                 palataan takaisin kurssinäkymään.
         """
 
         self._root = root
         self._frame = None
-        self._show_course_view = show_course_view
+        self._course_view = course_view
         self._title_entry = None
         self._description_entry = None
         self._deadline_entry = None
@@ -90,6 +90,7 @@ class CreateTaskView:
         title = self._title_entry.get()
         description = self._description_entry.get("1.0", 'end-1c')
         deadline = self._deadline_entry.get_date()
+        deadline = deadline.strftime("%d.%m.%Y")
 
         if title == "":
             self._show_error("Title must have at least one character")
@@ -97,7 +98,7 @@ class CreateTaskView:
             self._show_error("Title is too long")
 
         study_app_service.add_task(title, description, deadline)
-        self._show_course_view()
+        self._course_view()
 
     def _show_error(self, error):
         if self._error is not None:
@@ -138,7 +139,7 @@ class CreateTaskView:
         return_button = ttk.Button(
             master=self._frame,
             text="Return",
-            command=self._show_course_view
+            command=self._course_view
         )
 
         add_task_button.grid(padx=5, pady=5, sticky=constants.S)
@@ -151,17 +152,17 @@ class TaskView:
     """Tehtävänäkymästä vastaava luokka. Näyttää yksittäisen
         tehtävän tarkemmat tiedot."""
 
-    def __init__(self, root, show_course_view):
+    def __init__(self, root, previous_view):
         """Luokan konstruktori. Luo uuden tehtävänäkymän.
 
         Args:
             root: TKinter-elementti, jonka sisään näkymä alustetaan.
-            show_course_view:
+            previous_view:
                 Kutsuttava arvo, jota kutsutaan, kun palataan kurssinäkymään.
         """
 
         self._root = root
-        self.show_course_view = show_course_view
+        self._previous_view = previous_view
         self._task = study_app_service.get_current_task()
         self._task_state = self._task.state
         self._frame = None
@@ -202,7 +203,7 @@ class TaskView:
             text="Set done",
             command=lambda: [
                 study_app_service.change_task_state(self._task, 0),
-                self.show_course_view()
+                self._previous_view()
             ]
         )
 
@@ -211,14 +212,14 @@ class TaskView:
             text="Return task to To-do-list",
             command=lambda: [
                 study_app_service.change_task_state(self._task, 1),
-                self.show_course_view()
+                self._previous_view()
             ]
         )
 
         return_button = ttk.Button(
             master=self._frame,
             text="Return",
-            command=self.show_course_view
+            command=self._previous_view
         )
 
         title.grid(row=0, padx=5, pady=5, sticky=constants.W)
