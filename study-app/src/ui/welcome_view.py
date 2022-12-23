@@ -1,5 +1,4 @@
-from tkinter import ttk, constants
-import ui.styles as s
+from tkinter import ttk, constants, font
 
 
 class WelcomeView:
@@ -38,7 +37,7 @@ class WelcomeView:
         label = ttk.Label(
             master=self._frame,
             text="Welcome to Study-app!",
-            font=s.headers()
+            font=font.Font(weight='bold')
         )
 
         login_button = ttk.Button(

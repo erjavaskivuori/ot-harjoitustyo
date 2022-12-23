@@ -1,6 +1,5 @@
-from tkinter import ttk, constants, StringVar
+from tkinter import ttk, constants, StringVar, font
 from services.study_app_service import study_app_service, UsernameExistsError
-import ui.styles as s
 
 
 class RegisterView:
@@ -108,7 +107,7 @@ class RegisterView:
         label = ttk.Label(
             master=self._frame,
             text="Register",
-            font = s.headers()
+            font = font.Font(weight='bold')
         )
 
         label.grid(padx=5, pady=5, sticky=constants.N)

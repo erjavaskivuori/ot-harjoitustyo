@@ -1,7 +1,6 @@
-from tkinter import ttk, constants, messagebox
+from tkinter import ttk, constants, messagebox, font
 from services.study_app_service import study_app_service
 from ui.navigation import Navigation
-import ui.styles as s
 
 
 class CourseView:
@@ -29,7 +28,6 @@ class CourseView:
         self._course = study_app_service.get_current_course()
         self._course.tasks = study_app_service.get_tasks_by_course(
             self._course)
-        self._headers = s.headers()
 
         self._initialize()
 
@@ -80,7 +78,7 @@ class CourseView:
         label = ttk.Label(
             master=self._frame,
             text=f"{self._course.name}",
-            font=self._headers
+            font=font.Font(weight='bold')
         )
 
         label.grid(row=1, padx=5, pady=5, sticky=constants.W)
@@ -96,7 +94,7 @@ class CourseView:
         todo_label = ttk.Label(
             master=self._frame,
             text="To-do:",
-            font=self._headers
+            font=font.Font(weight='bold')
         )
 
         todo_label.grid(padx=5, pady=5, sticky=constants.W)
@@ -108,7 +106,7 @@ class CourseView:
         done_label = ttk.Label(
             master=self._frame,
             text="\nCompleted tasks:",
-            font=self._headers
+            font=font.Font(weight='bold')
         )
 
         done_label.grid(padx=5, pady=5, sticky=constants.W)
