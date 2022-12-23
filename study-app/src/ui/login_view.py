@@ -6,19 +6,19 @@ import ui.styles as s
 class LoginView:
     """Kirjautumisnäkymästä vastaava luokka."""
 
-    def __init__(self, root, login, show_welcome_view):
+    def __init__(self, root, login, previous_view):
         """Luokan kontruktori. Luo uuden kirjautumisnäkymän.
 
         Args:
             root: Tkinter-elementti, jonka sisään näkymä alustetaan.
             login: Kutsuttava arvo, jota kutsutaan, kun käyttäjä kirjautuu sisään.
-            show_welcome_view: 
+            previous_view: 
                 Kutsuttava arvo, jota kutsutaan, kun palataan aloitusnäkymään.
         """
 
         self._root = root
         self._login = login
-        self._show_welcome_view = show_welcome_view
+        self._previous_view = previous_view
         self._frame = None
         self._username_entry = None
         self._password_entry = None
@@ -111,7 +111,7 @@ class LoginView:
         return_button = ttk.Button(
             master=self._frame,
             text="Return",
-            command=self._show_welcome_view
+            command=self._previous_view
         )
 
         label.grid(padx=5, pady=5, sticky=constants.EW)

@@ -5,21 +5,21 @@ import ui.styles as s
 class WelcomeView:
     """Sovelluksen aloitusnäkymästä vastaava luokka."""
 
-    def __init__(self, root, show_login, show_register):
+    def __init__(self, root, login, register):
         """Luoka kontstruktori. Luo uuden aloitusnäkymän.
 
         Args:
             root: TKinter-elementti, jonka sisään näkymä alustetaan.
-            show_login: 
+            login: 
                 Kutsuttava arvo, jota kutsutaan kun siirrytään kirjautumisnäkymään.
-            show_register:
+            register:
                 Kutsuttava arvo, jota kutsutaan kun siirrytään rekisteröitymisnäkymään.
         """
 
         self._root = root
         self._frame = None
-        self._show_login = show_login
-        self._show_register = show_register
+        self._login = login
+        self._register = register
 
         self._initialize()
 
@@ -42,13 +42,13 @@ class WelcomeView:
         login_button = ttk.Button(
             master=self._frame,
             text="Login",
-            command=self._show_login
+            command=self._login
         )
 
         register_button = ttk.Button(
             master=self._frame,
             text="Register",
-            command=self._show_register
+            command=self._register
         )
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
