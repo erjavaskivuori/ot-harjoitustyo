@@ -36,8 +36,6 @@ class TaskRepository:
                        [course.id, title, description, deadline, 1])
         self._connection.commit()
 
-        return Task(cursor.lastrowid, course, title, description, deadline, 1)
-
     def get_tasks_by_course(self, course: Course):
         """Palauttaa kaikki kurssiin liittyvät tehtävät.
 
