@@ -78,8 +78,8 @@ class RegisterView:
         password1 = self._password_entry1.get()
         password2 = self._password_entry2.get()
 
-        if username == "" or password1 == "" or password2 == "":
-            self._show_error("Fill all the fields")
+        if len(username) < 3:
+            self._show_error("Username must have at least 3 characters")
 
         if password1 != password2:
             self._show_error("Passwords don't match")
