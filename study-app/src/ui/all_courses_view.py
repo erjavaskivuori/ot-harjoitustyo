@@ -7,7 +7,7 @@ import ui.styles as s
 class AllCoursesView:
     """Kaikkien käyttäjän kurssien näkymästä vastaava luokka."""
 
-    def __init__(self, root, show_welcome_view, show_course_view, show_all_tasks_view):
+    def __init__(self, root, show_course_view, show_all_tasks_view, logout):
         """Luokan konstruktori. Luo uuden kaikkien kurssien näkymän.
 
         Args:
@@ -19,9 +19,9 @@ class AllCoursesView:
         """
 
         self._root = root
-        self._show_welcome_view = show_welcome_view
         self._show_course_view = show_course_view
         self._show_all_tasks_view = show_all_tasks_view
+        self._logout = logout
         self._user = study_app_service.get_current_user()
         self._courses = study_app_service.get_undone_courses()
         self._frame = None
@@ -105,7 +105,7 @@ class AllCoursesView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        navigation = Navigation(self._frame, self, self._show_welcome_view)
+        navigation = Navigation(self._frame, None, self._logout)
         navigation.initialize(0)
 
         label = ttk.Label(
