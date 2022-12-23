@@ -1,7 +1,7 @@
+import bcrypt
 from repositories.user_repository import user_repository
 from repositories.course_repository import course_repository
 from repositories.task_repository import task_repository
-import bcrypt
 
 
 class UsernameExistsError(Exception):
@@ -160,7 +160,8 @@ class StudyAppService:
         """
 
         if self._course is not None:
-            self._task_repo.create_task(self._course, title, description, deadline)
+            self._task_repo.create_task(
+                self._course, title, description, deadline)
 
     def get_tasks_by_course(self, course):
         """Palauttaa tietyn kurssin tehtävät.
