@@ -10,12 +10,16 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 - [Käyttöohje](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kayttoohje.md)
 
-- [Releaset](https://github.com/erjavaskivuori/ot-harjoitustyo/releases)
+- [Testausdokumentti](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/testaus.md)
 
 - [Tuntikirjanpito](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/tuntikirjanpito.md)
 
 - [Changelog](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/changelog.md)
 
+
+## Releaset
+
+- [Kaikki releaset](https://github.com/erjavaskivuori/ot-harjoitustyo/releases)
 
 
 ## Asennus
@@ -35,18 +39,28 @@ poetry run invoke start
 ## Komentorivitoiminnot
 
 ### Ohjelman käynnistäminen
+
+Kun ohjelma on asennettu, sen voi käynnistää komentoriviltä käyttämällä seuraavaa komentoa:
 ```
 poetry run invoke start
 ```
 ### Testaus
+
+Testit suoritetaan komennolla:
 ```
 poetry run invoke test
 ```
 ### Testikattavuusraportin genereointi
+
+Testikattavuusraportin voi generoida komennolla:
 ```
 poetry run invoke coverage-report
 ```
+Raportti generoituu htmlcov-hakemistoon.
+
 ### Pylint tarkistukset
+
+Tiedoston .pylintrc määrittelemät tarkistukset suoritetaan komennolla:
 ```
 poetry run invoke lint
 ```
