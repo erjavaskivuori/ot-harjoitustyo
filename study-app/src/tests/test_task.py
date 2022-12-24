@@ -22,16 +22,15 @@ class TestTaskRepository(unittest.TestCase):
         self.assertEqual(tasks[0].title, self.test_task.title)
 
     def test_changing_task_state_works(self):
-        task = task_repository.create_task(
-            self.test_course, "title", "description", 12/12/2022)
-        task_repository.change_state(task, 0)
+        task_repository.create_task(self.test_course, "title", "description", 12/12/2022)
+        
+        task_repository.change_state(self.test_task, 0)
         tasks = task_repository.get_tasks_by_course(self.test_course)
 
         self.assertEqual(tasks[0].state, 0)
 
     def test_find_all_tasks_by_course(self):
-        task = task_repository.create_task(
-            self.test_course, "title", "description", 12/12/2022)
+        task_repository.create_task(self.test_course, "title", "description", 12/12/2022)
         tasks = task_repository.get_tasks_by_course(self.test_course)
 
-        self.assertEqual(tasks[0].description, task.description)
+        self.assertEqual(tasks[0].description, self.test_task.description)
