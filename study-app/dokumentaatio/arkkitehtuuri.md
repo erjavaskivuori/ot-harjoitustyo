@@ -83,3 +83,7 @@ Uuden tehtävän luominen aloitetaan siirtymällä tehtävän luomisnäkymään 
 ![kuva](https://github.com/erjavaskivuori/ot-harjoitustyo/blob/main/study-app/dokumentaatio/kuvat/sekvenssi-tehtavan-luominen.png)
 
 Add task -painikkeen painamisen seurauksena käyttöliittymä vaihtaa näkymäksi `CreateTaskView`:n. Kun käyttäjä painaa Add-painiketta, siihen reagoi tapahtumankäsittelijä, joka kutsuu `StudyAppService`-luokan `add_task`-metodia. Metodin parametreiksi annetaan otsikko, kuvaus ja määräpäivä. Kuvaus on vapaaehtoinen, ja mikäli kenttään ei syötä mitään, tallentuu tietokantaan tyhjä merkkijono. Sovelluslogiikka kutsuu sitten `TaskRepository`-luokan `create_task`-metodia, jolle annetaan parametreiksi kurssi, johon tehtävä liittyy, `Course`-oliona, otsikko, kuvaus ja määräpäivä. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi `CourseView`:n.
+
+### Muut toiminnallisuudet
+
+Sovelluksen muissakin toiminnallisuuksissa toistuu samanlainen periaate. Käyttöliittymän tapahtumakäsittelijä kutsuu sovelluslogiikan sopivaa metodia ja sovelluslogiikka suorittaa toiminnon. Kun kontrolli palaa sovelluslogiikkaan, päivitetään tarvittaessa aktiivista näkymää.

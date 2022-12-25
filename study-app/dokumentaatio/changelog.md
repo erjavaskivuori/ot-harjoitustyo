@@ -18,3 +18,7 @@
 - Tehtävän merkitä tehdyiksi ja palauttaa myös takaisin tekemättömäksi
 - Käyttäjä voi poistaa kurssin
 - Refaktoroitu koodia
+
+## Loppupalautus
+- Lisätty näkymä kaikille tehtäville
+- Paranneltu ulkoasua

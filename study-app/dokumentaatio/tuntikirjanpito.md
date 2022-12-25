@@ -17,4 +17,5 @@
 |22.12|2|Muokattu ulkoasua, koodin refaktorointia, navigaation työstäminen.|
 |23.12|9|Viimeistelty dokumentointi, koodin refaktorointi, lisätty salasanojen hajauttaminen, navigoinnin lisääminen näkymiin, ulkoasun editointia.|
 |24.12.|3|Testien lisääminen, viimeistely.|
+|25.12.|1|Dokumentaation tarkistaminen, lopullisen releasen tekeminen.|
 |yht|64||

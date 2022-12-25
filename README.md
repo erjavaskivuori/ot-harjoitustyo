@@ -19,7 +19,7 @@ Käyttäjä voi sovelluksen avulla pitää kirjaa kurssien suorittamisesta. Kull
 
 ## Releaset
 
-- [Kaikki releaset](https://github.com/erjavaskivuori/ot-harjoitustyo/releases)
+[Kaikki releaset](https://github.com/erjavaskivuori/ot-harjoitustyo/releases)
 
 
 ## Asennus
